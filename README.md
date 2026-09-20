@@ -11,8 +11,8 @@
 
 | 프로젝트 | 한 줄 설명 | 핵심 역량 | 상세 |
 |---|---|---|---|
-| **Stock — 틱 수집과 재현 연구** | 원본 체결·호가 이벤트를 수집하고 틱 단위 전략 재현의 정확성을 검증하는 연구·운영 파이프라인 | Python · 데이터 파이프라인 · 이벤트 재생 · 테스트 · Streamlit | [Repository](https://github.com/Peter-jackson12/Stock) |
-| **Airplane — 항공편 지연 분류** | 100만 행 항공편 데이터의 결측·시각·식별 문제를 점검하고 누수를 피하는 평가 경로를 설계 | Python · LightGBM · CV/OOF · 데이터 품질 · 실험 설계 | [Repository](https://github.com/Peter-jackson12/Airplane) |
+| **Stock — 틱 수집과 재현 연구** | 원본 체결·호가 이벤트를 수집하고 틱 단위 전략 재현의 정확성을 검증하는 연구·운영 파이프라인 | Python · 데이터 파이프라인 · 이벤트 재생 · 테스트 · Streamlit | [Case Study](projects/stock.md) · [Repo](https://github.com/Peter-jackson12/Stock) |
+| **Airplane — 항공편 지연 분류** | 100만 행 항공편 데이터의 결측·시각·식별 문제를 점검하고 누수를 피하는 평가 경로를 설계 | Python · LightGBM · CV/OOF · 데이터 품질 · 실험 설계 | [Case Study](projects/airplane.md) · [Repo](https://github.com/Peter-jackson12/Airplane) |
 | **KRX Quant EDA** | 약 70만 행 KRX 시세 데이터의 무결성·결측·이상치를 검증하고 시장/섹터 특성을 분석 | Pandas · EDA · 금융 데이터 · 시각화 · 도메인 검증 | [Repository](https://github.com/Peter-jackson12/finance) |
 | **Inferential Statistics & DOE** | 가설검정부터 ANOVA, 회귀, A/B 테스트 표본 설계까지 재현 가능한 노트북으로 정리 | SciPy · 통계적 추론 · A/B Test · 회귀 · 실험계획 | [Repository](https://github.com/Peter-jackson12/inferential_stats_and_doe_2) |
 
@@ -60,6 +60,9 @@ README의 주장, 코드, 테스트, 생성물의 역할을 분리하고 가능�
 career-portfolio/
 ├── README.md                         # 채용 담당자용 첫 화면
 ├── AGENTS.md                         # AI/에이전트 작업 원칙
+├── projects/
+│   ├── stock.md
+│   └── airplane.md
 └── docs/
     ├── PROJECT_CASE_STUDY_TEMPLATE.md
     └── ROADMAP.md
