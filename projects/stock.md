@@ -1,55 +1,62 @@
-# Stock — Tick Collection & Replay Research
+# Stock — 틱 수집과 재현 연구
 
-> **핵심 질문:** 원본 체결·호가 이벤트를 어떤 형태로 보존하고 재생해야 틱 단위 전략의 결과를 신뢰할 수 있는가?
+<!-- project: stock; status: in_progress; as_of: 2026-09-22 -->
 
-- **Repository:** https://github.com/Peter-jackson12/Stock
-- **Focus:** 데이터 수집 · 이벤트 재생 · 가상 체결 · 운영/분석 UI · 회귀 테스트
-- **Stack:** Python · Streamlit · pytest · SQLite/시장 데이터 · GitHub Actions
+**기준일 2026-09-22 · 상태: 진행 중 · source revision `6a6d6076649befc767e5d8d59151cbcfb2f27c34`**
 
-## 1. Problem
-주식 전략을 초·분봉으로만 재현하면 같은 시간 구간 안에서 실제 체결과 호가가 어떤 순서로 발생했는지 잃을 수 있습니다. 이 프로젝트는 원본 체결·호가 이벤트를 보존하고, 이후 연구 단계에서 같은 입력을 다시 재생할 수 있는 구조를 만드는 데 초점을 둡니다.
+## Problem
+체결·호가를 초봉으로만 변환하면 구간 안의 이벤트 순서와 원래 관측값을 잃을 수 있습니다.
+전략 점수보다 먼저 어떤 입력을 보존했고 어떤 검증을 통과했는지 설명할 수 있어야 합니다.
 
-단순히 백테스트 수익률을 출력하는 것이 아니라 **입력 데이터가 무엇인지, 어떤 변환을 거쳤는지, 어느 단계까지 검증되었는지**를 구분하는 것이 핵심 요구사항입니다.
+## Context
+로컬 Windows·OCX와 Git 제외 시장 데이터에 의존합니다. 기존 LOB/초봉 경로를 유지하면서
+raw-v2 수집과 틱 연구 경로를 분리합니다. CI 합성 데이터와 실제 시장 데이터를 같은 근거로 취급하지 않습니다.
 
-## 2. Data & Constraints
-- 실제 시장 데이터와 키움 OCX 등 일부 실행 환경은 로컬에만 존재합니다.
-- GitHub CI의 합성 테스트 성공은 실제 시장 데이터 검증 완료를 뜻하지 않습니다.
-- 기존 LOB/초봉 변환 경로와 새 틱 연구 경로가 공존하므로 결과 계약을 혼동하지 않아야 합니다.
-- 실제 주문 연결과 전략 수익성 입증은 별도 단계입니다.
+## My Role
+개인 저장소에서 수집·연구 시스템을 발전시키는 프로젝트입니다.
+이 사례는 코드와 문서에서 확인한 설계·검증 범위를 설명하며, 모든 코드를 혼자 작성했다는 주장이 아닙니다.
+**본인 확인 필요:** 직접 작성한 구현, 직접 내린 설계 결정, AI 도구의 구현 지원 범위를 구분한 기여 문장.
+커밋 작성자만으로 개인의 숙련도나 팀 기여율을 추정하지 않습니다.
 
-## 3. Approach
-1. 신규 수집 데이터를 `raw-v2` 계약으로 보존하고 원문과 정규화 기록을 구분합니다.
-2. 이벤트 재생·가상 체결·전략 로직을 수집기와 분리합니다.
-3. 운영 화면, 수집기, 작업 워커를 별도 프로세스로 두어 역할과 실패 경계를 나눕니다.
-4. `HANDOFF`, `BACKTEST_TODO`, `PIPELINE_MAP` 등 문서별 책임을 분리해 현재 상태와 과거 기록을 구분합니다.
-5. 레거시 경로를 제거하기보다 현재 연구 경로와 계약을 명시적으로 분리합니다.
+## Approach
+원문과 정규화 기록을 구분하고, 수집 종료의 일관성 확인과 연구 입력 합격을 분리합니다.
+운영 화면·수집기·작업 워커를 별도 프로세스로 두어 실패와 제어의 책임을 나눕니다.
 
-## 4. Validation
-- push/PR마다 Windows + Python 3.14 환경에서 Git-only pytest를 실행합니다.
-- 파일 잠금, 프로세스, 소켓 등 운영 경계에 대한 합성 회귀 테스트를 포함합니다.
-- Git-only 검증과 로컬 실데이터 검증을 문서상 별도 단계로 관리합니다.
-- 실제 연구 전에는 제한 표본과 입력 계약을 먼저 확인하는 절차를 둡니다.
+## Architecture / Pipeline
+```text
+raw-v2 수집 → 종료 근거 대조 → 제한 표본 → 전체 품질/무결성 판정
+                                                ↓ 합격 후
+                           이벤트 재생 → 연구 결과와 재현성 확인
+```
+단계별 운영 절차이며 한 번에 실행되는 자동 명령이라는 뜻은 아닙니다.
 
-## 5. Result
-현재 저장소는 **틱 수집 → 입력 검증 → 이벤트 재생 → 연구 실행**을 분리해 다룰 수 있는 연구·운영 구조를 갖추고 있습니다. 또한 기존 LOB/초봉 기반 자산을 유지하면서 새 틱 연구 경로를 독립적으로 발전시킬 수 있게 정리했습니다.
+## Key Technical Decisions
+원본 보존을 우선해 품질 문제가 있는 입력을 백테스트 후보로 승격하지 않습니다.
+SQLite read-only 연결이 sidecar를 전혀 만들지 않는다고 가정하지 않으며,
+잠금을 풀고 쓰기 연결을 여는 in-place 정리는 경쟁 writer가 들어올 수 있어 채택하지 않았습니다.
+레거시 변환 자산은 삭제하지 않고 결과 계약을 분리해 유지합니다.
 
-이 결과를 전략 수익성이나 실거래 성과로 해석하지 않습니다.
+## Validation
+`stock-sidecar-tests`는 Windows 핸들·부분 정리·writer 경합·경로 교체의 합성 회귀 코드를 가리킵니다.
+이 사례 작성에서는 원격 코드를 읽었으며 실제 raw 전체 검사나 Windows 로컬 실행을 재수행하지 않았습니다.
+CI 통과와 운영 데이터 인증을 구별합니다.
 
-## 6. What I Changed / Learned
-초기에는 백테스트 엔진과 파생 데이터 중심으로 문제를 보았지만, 프로젝트가 커지면서 **재현 가능한 연구의 선행 조건은 전략 코드보다 입력 데이터의 계약과 실행 경계를 명확히 하는 것**이라는 점이 더 중요해졌습니다.
+## Results
+수집·제어·입력 검증·연구 실행을 구분한 구현과 문서가 존재합니다(`stock-pipeline`).
+제한 표본에서 품질 문제를 확인한 상태를 숨기지 않고 전체 검증 전 연구 실행을 보류합니다.
+불안전한 sidecar 전환을 반례와 회귀로 남긴 점이 확인 가능한 엔지니어링 결과입니다.
 
-그래서 데이터 수집, 변환, 검증, 재생, 결과 저장과 운영 화면의 책임을 나누고, 문서도 “현재 상태”와 “과거 설계 기록”을 분리하는 방향으로 바꿨습니다.
+## Limitations
+전체 raw 품질 분포·연구 입력 합격·첫 실데이터 백테스트는 기준 revision에서 미완료입니다.
+실주문 연결, 전략 수익성, 공급자 데이터 무누락을 주장하지 않습니다.
 
-## 7. Limitations
-- 실제 주문 연결은 검증 범위 밖입니다.
-- 실데이터 백테스트와 수익성 검증은 로컬 데이터가 필요한 별도 단계입니다.
-- 합성/CI 통과만으로 수집 데이터의 실제 품질을 보증할 수 없습니다.
+## What I Learned
+이 프로젝트가 보여주는 판단은 “백테스트가 실행됨”보다 “입력을 믿을 수 있는 조건”이 먼저라는 것입니다.
+개인 회고로 제출할 때는 본인이 겪은 사건과 결정으로 확인한 뒤 작성합니다.
 
-## 8. Evidence
-- [Main README](https://github.com/Peter-jackson12/Stock)
-- [Pipeline Map](https://github.com/Peter-jackson12/Stock/blob/master/docs/PIPELINE_MAP.md)
-- [Testing Guide](https://github.com/Peter-jackson12/Stock/blob/master/docs/TESTING.md)
-- [Tick Research Runbook](https://github.com/Peter-jackson12/Stock/blob/master/TICK_RESEARCH_RUNBOOK.md)
+## Repository / Evidence
+- `stock-pipeline`: [역할과 실행 경계](https://github.com/Peter-jackson12/Stock/blob/6a6d6076649befc767e5d8d59151cbcfb2f27c34/README.md)
+- `stock-sidecar-tests`: [실패 경계 회귀](https://github.com/Peter-jackson12/Stock/blob/6a6d6076649befc767e5d8d59151cbcfb2f27c34/tests/test_raw_v2_sidecar_lab_boundaries.py)
+- [기준 시점 상태와 미완료 판정](https://github.com/Peter-jackson12/Stock/blob/6a6d6076649befc767e5d8d59151cbcfb2f27c34/HANDOFF.md)
 
-## 30-second Summary
-원본 체결·호가 이벤트를 보존하고 다시 재생할 수 있도록 주식 연구 파이프라인을 재구성한 프로젝트입니다. 수집기·운영 UI·이벤트 재생·가상 체결을 분리하고, 합성 CI와 실제 시장 데이터 검증의 경계도 명시했습니다. 목표는 화려한 백테스트 숫자보다 **같은 입력으로 같은 연구를 다시 수행하고 그 결과를 검증할 수 있는 구조**를 만드는 것입니다.
+[포트폴리오 첫 화면](../README.md) · [기계 판독 근거](../data/public/portfolio.json)

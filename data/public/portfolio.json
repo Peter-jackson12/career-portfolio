@@ -1,0 +1,64 @@
+{
+  "schema_version": "career-public/v1",
+  "visibility": "public",
+  "as_of": "2026-09-22",
+  "target_roles": ["데이터 분석", "데이터 사이언스"],
+  "projects": [
+    {
+      "project_id": "stock",
+      "name": "Stock — 틱 수집과 재현 연구",
+      "repository": "Peter-jackson12/Stock",
+      "status": "in_progress",
+      "summary": "원본 체결·호가 보존과 연구 입력 검증, 이벤트 재생의 책임을 분리한 로컬 연구 시스템.",
+      "case_study": "projects/stock.md",
+      "contribution_status": "owner_review_required",
+      "evidence": [
+        {
+          "evidence_id": "stock-pipeline",
+          "statement": "수집기·운영 화면·연구 워커를 분리하고 raw-v2 수집부터 입력 검증과 재생까지 단계별 계약을 관리한다.",
+          "skills": ["Python", "Streamlit", "데이터 파이프라인"],
+          "source": {"repository": "Peter-jackson12/Stock", "commit": "6a6d6076649befc767e5d8d59151cbcfb2f27c34", "path": "README.md"},
+          "scope": "repository_review",
+          "limitations": ["README와 구조를 검토한 근거이며 실데이터 연구 실행 완료나 수익성 입증이 아니다."]
+        },
+        {
+          "evidence_id": "stock-sidecar-tests",
+          "statement": "Windows SQLite sidecar의 부분 정리, 잠금 해제 후 writer 경합, 경로 교체를 합성 회귀로 다룬다.",
+          "skills": ["Python", "SQLite", "pytest"],
+          "source": {"repository": "Peter-jackson12/Stock", "commit": "6a6d6076649befc767e5d8d59151cbcfb2f27c34", "path": "tests/test_raw_v2_sidecar_lab_boundaries.py"},
+          "scope": "repository_review",
+          "limitations": ["코드 검토 근거이며 이번 Portfolio 작업에서 Windows 운영 데이터 검증을 실행한 것은 아니다."]
+        }
+      ],
+      "limitations": ["전체 raw 품질 검증과 첫 실데이터 백테스트는 기준 revision에서 미완료다.", "실주문 연결·전략 수익성·단독 구현 기여를 주장하지 않는다."]
+    },
+    {
+      "project_id": "airplane",
+      "name": "Airplane — 지연 분류와 데이터 품질",
+      "repository": "Peter-jackson12/Airplane",
+      "status": "in_progress",
+      "summary": "항공편 데이터의 모호한 대치와 평가 누수를 점검하고, 전처리 타당성과 예측 성능을 분리해 평가한 분석.",
+      "case_study": "projects/airplane.md",
+      "contribution_status": "owner_review_required",
+      "evidence": [
+        {
+          "evidence_id": "airplane-cv",
+          "statement": "CVConfig로 평가 설정을 공유하고 inner holdout 모델 선택과 outer 평가 경계를 구분한다.",
+          "skills": ["Python", "scikit-learn", "교차검증"],
+          "source": {"repository": "Peter-jackson12/Airplane", "commit": "0e1495c5f17deb958e6dce623eea78cb96cb54c4", "path": "src/cv.py"},
+          "scope": "repository_review",
+          "limitations": ["호환용 과거 함수의 교차 fold 의존성 한계도 코드에 명시돼 있다.", "모든 과거 실행과 미래 운영 성능이 검증됐다는 뜻은 아니다."]
+        },
+        {
+          "evidence_id": "airplane-findings",
+          "statement": "전처리 의미 개선과 Macro F1 향상 미확인을 구분하고 날씨 수집 완료와 날씨 모델 비교 미완료를 따로 기록한다.",
+          "skills": ["Python", "LightGBM", "데이터 품질"],
+          "source": {"repository": "Peter-jackson12/Airplane", "commit": "0e1495c5f17deb958e6dce623eea78cb96cb54c4", "path": "README.md"},
+          "scope": "repository_review",
+          "limitations": ["원본·대용량 cache는 Git에 없어 이번 검토에서 모델 실험을 재실행하지 않았다.", "전체 날씨 결합과 동일 조건 모델 비교의 성능 향상을 주장하지 않는다."]
+        }
+      ],
+      "limitations": ["정적 라벨 집단의 평가를 미래 서비스 효과로 일반화하지 않는다.", "날씨 transport 완료와 전체 row join·weather-on 모델 검증 완료는 다르다."]
+    }
+  ]
+}
