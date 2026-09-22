@@ -61,11 +61,20 @@ def render_index(portfolio: PublicPortfolio) -> str:
             [
                 f"## {plain(project.name)}",
                 "",
-                f"상태: `{project.status}` · 개인 기여: `{project.contribution_status}`",
+                f"상태: `{project.status}` · 프로젝트 책임: `{project.contribution_status}`",
                 f"[사례 읽기](../{project.case_study})",
                 "",
             ]
         )
+        if project.ownership:
+            lines.extend(
+                [
+                    "개인 프로젝트 · End-to-End Project Ownership · AI-Assisted Development",
+                    f"확인 근거: `{project.ownership.basis}` · "
+                    f"확인일: {project.ownership.confirmed_on}",
+                    "",
+                ]
+            )
         for evidence in project.evidence:
             lines.append(
                 f"- `{evidence.evidence_id}` — {plain(', '.join(evidence.skills))} "
@@ -155,6 +164,28 @@ def check(root: Path, agent_root: Path | None = None, write: bool = False) -> Pu
             f"## {heading}\n" not in narrative for heading in REQUIRED
         ):
             raise ValueError("case study structure or status marker differs")
+        role = narrative.split("## My Role\n", 1)[1].split("\n## ", 1)[0]
+        ownership_markers = re.findall(r"<!-- ownership: .*? -->", narrative)
+        if project.ownership:
+            ownership_marker = (
+                "<!-- ownership: owner_confirmed; basis: owner_statement; "
+                f"confirmed_on: {project.ownership.confirmed_on} -->"
+            )
+            if ownership_markers != [ownership_marker] or ownership_marker not in role:
+                raise ValueError("case study ownership marker differs from public data")
+            if any(
+                label not in role
+                for label in (
+                    "개인 프로젝트",
+                    "End-to-End Project Ownership",
+                    "AI-Assisted Development",
+                )
+            ):
+                raise ValueError("case study My Role ownership labels differ from public data")
+        elif ownership_markers or any(
+            label in role for label in ("owner_confirmed", "End-to-End Project Ownership")
+        ):
+            raise ValueError("case study claims ownership absent from public data")
         for evidence in project.evidence:
             if f"`{evidence.evidence_id}`" not in narrative or evidence.source.url not in narrative:
                 raise ValueError("case study is missing an evidence ID or pinned source")

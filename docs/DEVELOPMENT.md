@@ -36,3 +36,8 @@ python scripts/check_portfolio.py --agent-root ../career-agent
 
 해시 갱신은 자동 동기화가 아니며 변경 내용을 검토한 뒤 수행합니다. 양쪽 의미를 바꾸는 변경은 계약 버전과 migration을 함께 설계합니다.
 [사례 템플릿](PROJECT_CASE_STUDY_TEMPLATE.md) · [Roadmap](ROADMAP.md)
+
+## Ownership 변경 검증
+canonical 계약 → 복제본/lock/Schema → 공개 JSON → My Role 일치 검사 → 생성 인덱스 순서로 갱신합니다.
+`python scripts/check_portfolio.py --agent-root ../career-agent --write --tracked`와 전체 pytest/Ruff를 실행합니다.
+My Role 표기 불일치는 파일 생성 전에 거부하며 README와 사례의 사람 편집 본문은 생성하지 않습니다.

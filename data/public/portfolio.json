@@ -1,5 +1,5 @@
 {
-  "schema_version": "career-public/v1",
+  "schema_version": "career-public/v1.1",
   "visibility": "public",
   "as_of": "2026-09-22",
   "target_roles": ["데이터 분석", "데이터 사이언스"],
@@ -11,7 +11,14 @@
       "status": "in_progress",
       "summary": "원본 체결·호가 보존과 연구 입력 검증, 이벤트 재생의 책임을 분리한 로컬 연구 시스템.",
       "case_study": "projects/stock.md",
-      "contribution_status": "owner_review_required",
+      "contribution_status": "owner_confirmed",
+      "ownership": {
+        "project_type": "personal",
+        "scope": "end_to_end",
+        "development_mode": "ai_assisted",
+        "basis": "owner_statement",
+        "confirmed_on": "2026-09-22"
+      },
       "evidence": [
         {
           "evidence_id": "stock-pipeline",
@@ -39,7 +46,14 @@
       "status": "in_progress",
       "summary": "항공편 데이터의 모호한 대치와 평가 누수를 점검하고, 전처리 타당성과 예측 성능을 분리해 평가한 분석.",
       "case_study": "projects/airplane.md",
-      "contribution_status": "owner_review_required",
+      "contribution_status": "owner_confirmed",
+      "ownership": {
+        "project_type": "personal",
+        "scope": "end_to_end",
+        "development_mode": "ai_assisted",
+        "basis": "owner_statement",
+        "confirmed_on": "2026-09-22"
+      },
       "evidence": [
         {
           "evidence_id": "airplane-cv",

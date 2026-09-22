@@ -17,7 +17,7 @@ Career Agent는 공개 JSON을 읽어 로컬 공고와 비교합니다. Agent의
 
 `scope`는 repository_review / ci_record / local_report를 구분합니다. 현재 실제 네 근거는
 repository_review입니다. CI 성공을 직접 읽은 실행 근거처럼, 로컬 보고를 재실행처럼 바꾸지 않습니다.
-`contribution_status: owner_review_required`는 저장소 검토가 개인의 기여 인증이 아님을 뜻합니다.
+`contribution_status: owner_review_required`는 아직 프로젝트 책임에 대한 명시적 확인이 없는 상태입니다. Stock/Airplane은 작성자 확인에 따라 owner_confirmed입니다.
 목표 직무는 지원 방향이며 기존 재직 이력이 아닙니다. 취업용 문구로 확정하기 전 본인이 검토합니다.
 
 ## JSON을 고른 이유
@@ -39,3 +39,20 @@ JSON Schema 통과만으로 전체 검증이 끝나지 않습니다.
 `python scripts/check_portfolio.py --agent-root ../career-agent`로 바이트 일치를 검증합니다.
 
 [개발 절차](DEVELOPMENT.md) · [개인정보 경계](PRIVACY.md)
+
+## Ownership 계약 v1.1
+`career-public/v1.1`은 프로젝트 `contribution_status: owner_confirmed`와 `ownership`을 함께 받습니다.
+ownership은 `project_type: personal`, `scope: end_to_end`, `development_mode: ai_assisted`,
+`basis: owner_statement`, ISO 날짜 `confirmed_on`으로 구성하며 필드는 모두 필수입니다.
+확인 상태와 객체의 불일치·유효하지 않은 날짜는 거부합니다. 프로젝트 이름으로 확인을 추론하지 않습니다.
+확인되지 않은 프로젝트는 `owner_review_required`와 ownership 생략/null을 사용합니다.
+v1은 기존 미확인 입력을 계속 지원하고 확인 객체는 v1.1에서만 받습니다.
+기존 v1 content hash는 빈 ownership 필드를 제외하여 보존합니다. v1.1의 확인 정보는 해시에 포함됩니다.
+
+프로젝트 ownership은 문제 정의·목표·방향·설계 판단·코드 통합·검증 기준·운영·우선순위·문서화·최종 결정의 책임입니다.
+개별 코드/테스트를 직접 작성한 사람, 특정 실행자나 AI 코드 비율을 뜻하지 않습니다.
+repository evidence, skill proficiency, job qualification, evidence verification은 별개입니다.
+확인으로 기술 태그나 verified_by/verified_at을 만들지 않으며 기존 근거와 한계는 보존합니다.
+Python 검증은 날짜의 실재성과 버전/상태/객체 관계도 검사합니다. JSON Schema만으로 이 검사를 대신하지 않습니다.
+
+Stock/Airplane은 2026-09-22 owner statement를 반영합니다. 생성 전에 My Role의 ownership marker·날짜·개인 프로젝트/End-to-End/AI-Assisted 표기를 대조합니다. 이는 정해진 표기의 일치 검사이며 자연어 전체의 사실 검증은 아닙니다.

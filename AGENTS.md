@@ -23,3 +23,9 @@ ruff check ., ruff format --check ., python scripts/check_portfolio.py --tracked
 가능하면 --agent-root로 두 계약의 바이트 일치도 확인한다. 생성 인덱스는 --write로 갱신한다.
 브랜치 → 의미 있는 커밋 → PR → self-review/CI → 최신 head 확인 순서를 지킨다.
 실행하지 않은 검증을 통과했다고 쓰지 않는다. 공개 전에는 docs/PRIVACY.md의 이력·metadata 점검이 필요하다.
+
+## 프로젝트 책임과 근거의 구분
+명시적 owner statement에 따른 개인 프로젝트·end-to-end·AI-assisted ownership을 보존한다.
+Stock/Airplane의 확인일은 2026-09-22이며 다른 프로젝트를 이름만으로 승인하지 않는다.
+ownership과 기술 숙련도·채용 자격·evidence verification·개별 작성/실행 attribution을 합치지 않는다.
+확인 상태 변경으로 기술 태그·성과·verified_by/verified_at을 생성하지 않는다. v1 호환과 해시를 보존한다.

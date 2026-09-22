@@ -31,11 +31,10 @@ Stock 수익성·실주문 성과·전체 raw 합격, Airplane 날씨 효과·�
 finance 등 다른 저장소의 역할은 이번 확인 대상이 아닙니다.
 
 ## 파일 반영 현황
-이 문서는 작성자의 확인 사실을 기록합니다. 구조화 데이터와 Agent의 ownership 처리 수정은 별도 반영 대기입니다.
-현재 공개 JSON·생성 인덱스·Agent 출력에 남아 있는 `owner_review_required`는 이전 구현의 상태이며,
-Stock·Airplane의 개인 프로젝트 책임이 여전히 미확인이라는 뜻으로 사용하면 안 됩니다.
-미반영 수정과 테스트 상태는 [Portfolio PR #1](https://github.com/Peter-jackson12/career-portfolio/pull/1)과
-[Agent PR #2](https://github.com/Peter-jackson12/career-agent/pull/2)에서 구분합니다.
-코드·데이터·표현이 일치하기 전에는 이번 마감 요청의 완료 또는 외부 공개 준비 완료로 표시하지 않습니다.
+공개 JSON은 `career-public/v1.1`의 `owner_confirmed`와 ownership 객체로 이 확인을 기록합니다.
+생성 인덱스와 Agent의 JSON/Markdown 준비 메모도 같은 프로젝트 책임을 보존합니다.
+My Role의 기존 marker·확인일·책임 표기와 구조화 데이터가 다르면 인덱스 생성 전에 실패합니다.
+확인되지 않은 다른 프로젝트는 계속 `owner_review_required`이며 이름으로 자동 승인하지 않습니다.
+기술 근거·숙련도·직무 자격·evidence 검증은 별도로 판단합니다. CI와 원격 반영 상태는 각 PR 기록을 따릅니다.
 
 [Stock의 역할](../projects/stock.md) · [Airplane의 역할](../projects/airplane.md) · [공개 전 점검](PRIVACY.md)

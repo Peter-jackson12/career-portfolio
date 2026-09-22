@@ -1,4 +1,4 @@
-"""career-public/v1. Portable contract; repository evidence is not personal experience.
+"""career-public/v1 and v1.1; ownership is separate from evidence verification.
 
 The canonical copy lives in career-agent. career-portfolio vendors this file byte-for-byte.
 No network, private fields, arbitrary metadata, or automatic publication is supported.
@@ -76,6 +76,19 @@ class PublicEvidence(PublicModel):
     limitations: list[Text] = Field(min_length=1, max_length=20)
 
 
+class ProjectOwnership(PublicModel):
+    project_type: Literal["personal"]
+    scope: Literal["end_to_end"]
+    development_mode: Literal["ai_assisted"]
+    basis: Literal["owner_statement"]
+    confirmed_on: str = Field(pattern=r"^\d{4}-\d{2}-\d{2}$")
+
+    @model_validator(mode="after")
+    def valid_date(self) -> ProjectOwnership:
+        date.fromisoformat(self.confirmed_on)
+        return self
+
+
 class PublicProject(PublicModel):
     project_id: Identifier
     name: Text
@@ -83,12 +96,15 @@ class PublicProject(PublicModel):
     status: Literal["in_progress", "analysis_complete", "learning", "archived"]
     summary: Text
     case_study: RelativePath
-    contribution_status: Literal["owner_review_required"]
+    contribution_status: Literal["owner_review_required", "owner_confirmed"]
+    ownership: ProjectOwnership | None = None
     evidence: list[PublicEvidence] = Field(min_length=1, max_length=100)
     limitations: list[Text] = Field(min_length=1, max_length=20)
 
     @model_validator(mode="after")
     def references(self) -> PublicProject:
+        if (self.contribution_status == "owner_confirmed") != (self.ownership is not None):
+            raise ValueError("contribution status and ownership must agree")
         safe_path(self.case_study)
         if not self.case_study.startswith("projects/") or not self.case_study.endswith(".md"):
             raise ValueError("case_study must be a projects/*.md file")
@@ -98,7 +114,7 @@ class PublicProject(PublicModel):
 
 
 class PublicPortfolio(PublicModel):
-    schema_version: Literal["career-public/v1"]
+    schema_version: Literal["career-public/v1", "career-public/v1.1"]
     visibility: Literal["public"]
     as_of: str = Field(pattern=r"^\d{4}-\d{2}-\d{2}$")
     target_roles: list[Text] = Field(min_length=1, max_length=10)
@@ -107,6 +123,10 @@ class PublicPortfolio(PublicModel):
     @model_validator(mode="after")
     def integrity(self) -> PublicPortfolio:
         date.fromisoformat(self.as_of)
+        if self.schema_version == "career-public/v1" and any(
+            project.ownership is not None for project in self.projects
+        ):
+            raise ValueError("confirmed ownership requires career-public/v1.1")
         project_ids = [p.project_id for p in self.projects]
         evidence_ids = [e.evidence_id for p in self.projects for e in p.evidence]
         if len(set(project_ids)) != len(project_ids) or len(set(evidence_ids)) != len(evidence_ids):
@@ -118,9 +138,12 @@ class PublicPortfolio(PublicModel):
 
     @property
     def content_hash(self) -> str:
-        raw = json.dumps(
-            self.model_dump(), ensure_ascii=False, sort_keys=True, separators=(",", ":")
-        )
+        payload = self.model_dump()
+        # Preserve the exact v1 hash preimage: absent ownership was not a null field.
+        for project in payload["projects"]:
+            if project["ownership"] is None:
+                del project["ownership"]
+        raw = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
         return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
 
