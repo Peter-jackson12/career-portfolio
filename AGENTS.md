@@ -19,7 +19,7 @@ Agent private 데이터는 역방향 전송하지 않는다. 기술 태그는 �
 사례는 docs/PROJECT_CASE_STUDY_TEMPLATE.md의 My Role·설계 결정·결과·한계까지 포함한다.
 
 ## 검증과 Git
-python scripts/check_portfolio.py --tracked, python -m pytest -q를 실행한다.
+ruff check ., ruff format --check ., python scripts/check_portfolio.py --tracked, python -m pytest -q를 실행한다.
 가능하면 --agent-root로 두 계약의 바이트 일치도 확인한다. 생성 인덱스는 --write로 갱신한다.
 브랜치 → 의미 있는 커밋 → PR → self-review/CI → 최신 head 확인 순서를 지킨다.
 실행하지 않은 검증을 통과했다고 쓰지 않는다. 공개 전에는 docs/PRIVACY.md의 이력·metadata 점검이 필요하다.

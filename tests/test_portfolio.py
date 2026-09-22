@@ -5,7 +5,6 @@ import shutil
 from pathlib import Path
 
 import pytest
-
 from check_portfolio import check, forbidden_path, plain, render_index, tracked_guard
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,8 +12,16 @@ ROOT = Path(__file__).resolve().parents[1]
 
 @pytest.fixture
 def copied(tmp_path):
-    for name in ["README.md", "contracts.lock.json", "data", "schemas", "scripts",
-                 "generated", "projects", "docs"]:
+    for name in [
+        "README.md",
+        "contracts.lock.json",
+        "data",
+        "schemas",
+        "scripts",
+        "generated",
+        "projects",
+        "docs",
+    ]:
         source = ROOT / name
         if source.is_dir():
             shutil.copytree(source, tmp_path / name, ignore=shutil.ignore_patterns("__pycache__"))
@@ -27,11 +34,21 @@ def test_real_public_contract_and_index():
     portfolio = check(ROOT)
     assert len(portfolio.projects) == 2
     assert sum(len(p.evidence) for p in portfolio.projects) == 4
-    assert render_index(portfolio) == (ROOT / "generated/PROJECT_INDEX.md").read_text(encoding="utf-8")
+    assert render_index(portfolio) == (ROOT / "generated/PROJECT_INDEX.md").read_text(
+        encoding="utf-8"
+    )
 
 
-@pytest.mark.parametrize("path", ["private/profile.json", "data/private.json", ".env",
-                                  "docs/resume.pdf", "notes/history.sqlite3"])
+@pytest.mark.parametrize(
+    "path",
+    [
+        "private/profile.json",
+        "data/private.json",
+        ".env",
+        "docs/resume.pdf",
+        "notes/history.sqlite3",
+    ],
+)
 def test_forbidden_runtime_paths(path):
     assert forbidden_path(path)
 
@@ -42,9 +59,14 @@ def test_public_data_allowed():
 
 @pytest.mark.parametrize("kind", ["index", "contract", "schema", "status", "source", "link"])
 def test_corruption_is_rejected(copied, kind):
-    paths = {"index": "generated/PROJECT_INDEX.md", "contract": "scripts/public_contract.py",
-             "schema": "schemas/career-public-v1.schema.json", "status": "projects/stock.md",
-             "source": "projects/stock.md", "link": "README.md"}
+    paths = {
+        "index": "generated/PROJECT_INDEX.md",
+        "contract": "scripts/public_contract.py",
+        "schema": "schemas/career-public-v1.schema.json",
+        "status": "projects/stock.md",
+        "source": "projects/stock.md",
+        "link": "README.md",
+    }
     path = copied / paths[kind]
     text = path.read_text(encoding="utf-8")
     if kind in {"index", "contract"}:

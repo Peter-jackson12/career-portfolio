@@ -8,7 +8,9 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import re
+import stat
 import unicodedata
 from datetime import date
 from pathlib import Path
@@ -131,12 +133,27 @@ def _unique_object(pairs: list[tuple[str, object]]) -> dict[str, object]:
     return result
 
 
+def _reject_constant(value: str) -> None:
+    raise ValueError("non-finite JSON numbers are not accepted")
+
+
 def read_json(path: str | Path) -> object:
+    if not Path(path).is_file():
+        raise ValueError("input must be a regular JSON file")
     with Path(path).open("rb") as stream:
+        if not stat.S_ISREG(os.fstat(stream.fileno()).st_mode):
+            raise ValueError("input must be a regular JSON file")
         raw = stream.read(MAX_INPUT_BYTES + 1)
     if len(raw) > MAX_INPUT_BYTES:
         raise ValueError("input exceeds the size limit")
-    return json.loads(raw.decode("utf-8-sig"), object_pairs_hook=_unique_object)
+    try:
+        return json.loads(
+            raw.decode("utf-8-sig"),
+            object_pairs_hook=_unique_object,
+            parse_constant=_reject_constant,
+        )
+    except RecursionError:
+        raise ValueError("JSON nesting exceeds the supported depth") from None
 
 
 def load_portfolio(path: str | Path) -> PublicPortfolio:

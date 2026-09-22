@@ -10,3 +10,4 @@ packaging==25.0
 pluggy==1.6.0
 pygments==2.20.0
 colorama==0.4.6; sys_platform == 'win32'
+ruff==0.15.0

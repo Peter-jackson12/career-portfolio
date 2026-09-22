@@ -6,6 +6,8 @@ Python 3.11 이상을 사용합니다. 저장소 루트에서 실행합니다.
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements-dev.txt
+ruff check .
+ruff format --check .
 python scripts/check_portfolio.py --write
 python scripts/check_portfolio.py --tracked
 python -m pytest -q
@@ -13,7 +15,7 @@ python -m pytest -q
 
 Linux/macOS는 활성화만 `source .venv/bin/activate`로 바꿉니다.
 `--write`는 공개 JSON으로 `generated/PROJECT_INDEX.md`만 갱신합니다.
-CI는 네트워크로 다른 비공개 저장소를 읽지 않고 데이터·계약 해시·Schema·사례 구조·상대 링크·추적 파일을 검증합니다.
+CI는 lint·format도 확인하며 네트워크로 다른 비공개 저장소를 읽지 않고 데이터·계약 해시·Schema·사례 구조·상대 링크·추적 파일을 검증합니다.
 현재 검사기는 외부 URL 존재, Markdown 절 anchor, 모바일 실제 기기 렌더링과 문장 의미를 자동 인증하지 않습니다.
 
 ## 변경 순서
