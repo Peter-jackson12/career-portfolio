@@ -1,0 +1,27 @@
+name: Temporary review snapshot
+on:
+  pull_request:
+    paths: ['.github/workflows/review-snapshot.yml']
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Archive tracked source only (no Git history or runtime data)
+        shell: bash
+        run: |
+          mkdir review-snapshot
+          git archive --format=zip ebc7bf400011c2a6cd6fcd04c721bd3801218fe8 -o review-snapshot/head.zip
+          git archive --format=zip 3eded45c1ef1be2b807c34244b99597b79995c15 -o review-snapshot/base.zip
+          git ls-tree -r ebc7bf400011c2a6cd6fcd04c721bd3801218fe8 > review-snapshot/tree.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: review-source-portfolio
+          path: review-snapshot/
+          retention-days: 1
