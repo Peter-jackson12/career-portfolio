@@ -1,42 +1,36 @@
 # Project Case Study Template
 
-> 이 파일을 복사해 프로젝트별 case study를 만든다. 채용 담당자가 먼저 읽고, 기술 면접에서 근거를 따라갈 수 있는 구조를 목표로 한다.
+공개 가능한 내용만 작성합니다. 실제로 확인하지 않은 수치·개인 역할·운영 성과는 빈칸을 채우기 위해 만들지 않습니다.
+기준일, project ID, 상태와 full source commit을 먼저 명시합니다.
 
-## Project
-- **Name:**
-- **Role / Contribution:**
-- **Period:**
-- **Repository:**
-- **Stack:**
+## Problem
+어떤 문제를 해결하려 했는가?
+## Context
+데이터 단위·범위·실행 제약과 평가 대상은 무엇인가?
+## My Role
+직접 담당한 결정·구현·검증과 팀/AI 도구 기여는 어떻게 구분되는가?
+## Approach
+문제를 어떤 순서로 나누어 접근했는가?
+## Architecture / Pipeline
+입력→변환→검증→결과의 경계는 무엇인가?
+## Key Technical Decisions
+대안과 trade-off, 선택 이유는 무엇인가?
+## Validation
+코드 검토·CI·로컬 보고·직접 재실행 중 무엇을 확인했는가?
+## Results
+출처로 뒷받침되는 결과는 무엇인가? 개선이 없었다면 그대로 기록한다.
+## Limitations
+어디까지 일반화하거나 주장할 수 없는가?
+## What I Learned
+어떤 증거 때문에 실제 판단을 바꾸었는가? 본인 경험으로 확인한다.
+## Repository / Evidence
+공개 JSON의 evidence ID와 repository/full commit/path 링크를 대응시킨다.
 
-## 1. Problem
-어떤 문제를 해결하려 했는지 2~4문장으로 설명한다.
+기존 period·stack·role 등 개요는 검증된 경우에만 포함합니다. 기여율을 커밋 수로 추정하지 않습니다.
 
-## 2. Data & Constraints
-- 데이터 규모와 단위
-- 결측/품질/수집/실행 환경 제약
-- 사용할 수 없었던 정보 또는 경계
-
-## 3. Approach
-핵심 설계 선택 3~5개만 적는다. 단순 기술 나열보다 왜 그 선택을 했는지 설명한다.
-
-## 4. Validation
-- 평가/테스트 방법
-- 데이터 누수 방지 방식
-- 회귀 테스트 또는 재현 절차
-- 비교 기준
-
-## 5. Result
-확인된 결과만 적는다. 성능 개선이 없었다면 그것도 결과로 명시한다.
-
-## 6. What I Changed / Learned
-처음 가정이 무엇이었고, 어떤 증거 때문에 설계나 판단을 바꿨는지 적는다.
-
-## 7. Limitations
-현재 결과로 주장할 수 없는 범위를 명확히 적는다.
-
-## 8. Evidence
-원본 저장소의 README, 코드, 테스트, 보고서, 실행 결과 링크를 연결한다.
-
-## 30-second Summary
-면접관이 이 문단만 읽어도 프로젝트의 문제·내 역할·핵심 결과를 이해할 수 있도록 3~5문장으로 마무리한다.
+## Ownership 표기 규칙
+작성자가 확인한 personal/end-to-end/AI-assisted 프로젝트만 My Role에 다음 표기를 사용합니다.
+`개인 프로젝트 · End-to-End Project Ownership · AI-Assisted Development`와
+`<!-- ownership: owner_confirmed; basis: owner_statement; confirmed_on: YYYY-MM-DD -->`를 넣고 실제 확인일을 사용합니다.
+공개 JSON의 상태·ownership과 일치해야 합니다. 미확인 프로젝트에 예시를 그대로 복사하지 않습니다.
+프로젝트 책임과 코드 직접 작성·특정 실행·숙련도·evidence 검증을 구분합니다.

@@ -1,0 +1,65 @@
+{
+  "$defs": {
+    "ProjectOwnership": {
+      "additionalProperties": false,
+      "properties": {
+        "project_type": {"const": "personal", "title": "Project Type", "type": "string"},
+        "scope": {"const": "end_to_end", "title": "Scope", "type": "string"},
+        "development_mode": {"const": "ai_assisted", "title": "Development Mode", "type": "string"},
+        "basis": {"const": "owner_statement", "title": "Basis", "type": "string"},
+        "confirmed_on": {"pattern": "^\\d{4}-\\d{2}-\\d{2}$", "title": "Confirmed On", "type": "string"}
+      },
+      "required": ["project_type", "scope", "development_mode", "basis", "confirmed_on"],
+      "title": "ProjectOwnership", "type": "object"
+    },
+    "PublicEvidence": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_id": {"pattern": "^[a-z][a-z0-9._-]{0,79}$", "title": "Evidence Id", "type": "string"},
+        "statement": {"maxLength": 2000, "minLength": 1, "title": "Statement", "type": "string"},
+        "skills": {"items": {"maxLength": 2000, "minLength": 1, "type": "string"}, "maxItems": 30, "minItems": 1, "title": "Skills", "type": "array"},
+        "source": {"$ref": "#/$defs/SourceRef"},
+        "scope": {"enum": ["repository_review", "ci_record", "local_report"], "title": "Scope", "type": "string"},
+        "limitations": {"items": {"maxLength": 2000, "minLength": 1, "type": "string"}, "maxItems": 20, "minItems": 1, "title": "Limitations", "type": "array"}
+      },
+      "required": ["evidence_id", "statement", "skills", "source", "scope", "limitations"],
+      "title": "PublicEvidence", "type": "object"
+    },
+    "PublicProject": {
+      "additionalProperties": false,
+      "properties": {
+        "project_id": {"pattern": "^[a-z][a-z0-9._-]{0,79}$", "title": "Project Id", "type": "string"},
+        "name": {"maxLength": 2000, "minLength": 1, "title": "Name", "type": "string"},
+        "repository": {"pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$", "title": "Repository", "type": "string"},
+        "status": {"enum": ["in_progress", "analysis_complete", "learning", "archived"], "title": "Status", "type": "string"},
+        "summary": {"maxLength": 2000, "minLength": 1, "title": "Summary", "type": "string"},
+        "case_study": {"pattern": "^[A-Za-z0-9_./-]+$", "title": "Case Study", "type": "string"},
+        "contribution_status": {"enum": ["owner_review_required", "owner_confirmed"], "title": "Contribution Status", "type": "string"},
+        "ownership": {"anyOf": [{"$ref": "#/$defs/ProjectOwnership"}, {"type": "null"}], "default": null},
+        "evidence": {"items": {"$ref": "#/$defs/PublicEvidence"}, "maxItems": 100, "minItems": 1, "title": "Evidence", "type": "array"},
+        "limitations": {"items": {"maxLength": 2000, "minLength": 1, "type": "string"}, "maxItems": 20, "minItems": 1, "title": "Limitations", "type": "array"}
+      },
+      "required": ["project_id", "name", "repository", "status", "summary", "case_study", "contribution_status", "evidence", "limitations"],
+      "title": "PublicProject", "type": "object"
+    },
+    "SourceRef": {
+      "additionalProperties": false,
+      "properties": {
+        "repository": {"pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$", "title": "Repository", "type": "string"},
+        "commit": {"pattern": "^[0-9a-f]{40}$", "title": "Commit", "type": "string"},
+        "path": {"pattern": "^[A-Za-z0-9_./-]+$", "title": "Path", "type": "string"}
+      },
+      "required": ["repository", "commit", "path"], "title": "SourceRef", "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"enum": ["career-public/v1", "career-public/v1.1"], "title": "Schema Version", "type": "string"},
+    "visibility": {"const": "public", "title": "Visibility", "type": "string"},
+    "as_of": {"pattern": "^\\d{4}-\\d{2}-\\d{2}$", "title": "As Of", "type": "string"},
+    "target_roles": {"items": {"maxLength": 2000, "minLength": 1, "type": "string"}, "maxItems": 10, "minItems": 1, "title": "Target Roles", "type": "array"},
+    "projects": {"items": {"$ref": "#/$defs/PublicProject"}, "maxItems": 50, "minItems": 1, "title": "Projects", "type": "array"}
+  },
+  "required": ["schema_version", "visibility", "as_of", "target_roles", "projects"],
+  "title": "PublicPortfolio", "type": "object"
+}

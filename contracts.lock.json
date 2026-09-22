@@ -1,0 +1,7 @@
+{
+  "schema_version": "career-public/v1.1",
+  "canonical_repository": "Peter-jackson12/career-agent",
+  "canonical_path": "src/career_agent/public_contract.py",
+  "vendored_path": "scripts/public_contract.py",
+  "sha256": "b94603bd4015435c9a3e3ba967f0ad247dded3d1222f39d042abfdfe56091ffd"
+}
