@@ -36,5 +36,7 @@ Stock·Airplane의 개인 프로젝트 확인을 다른 저장소의 개인 기�
 
 Portfolio는 사람이 읽는 공개 후보 자료, Career Agent는 로컬 지원 준비 시스템입니다.
 현재 접근 설정은 **비공개**이며 연락처·이력서 원본·지원 기록을 추가하지 않습니다.
+[작업 입구](AGENTS.md) · [현재 상태](docs/STATUS.md) · [문서 지도](docs/INDEX.md) · [구조와 파이프라인](docs/ARCHITECTURE.md)
+
 [데이터·연결 계약](docs/DATA_MODEL.md) · [개인정보 점검](docs/PRIVACY.md) ·
 [개발·검증](docs/DEVELOPMENT.md) · [Roadmap](docs/ROADMAP.md) · [감사 기록](docs/AUDIT_20260922.md)
