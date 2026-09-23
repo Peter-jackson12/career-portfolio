@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def copied(tmp_path):
     for name in [
         "README.md",
+        "AGENTS.md",
         "contracts.lock.json",
         "data",
         "schemas",
