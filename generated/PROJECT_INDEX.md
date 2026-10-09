@@ -3,7 +3,7 @@
 자동 생성 파일입니다. 직접 수정하지 않습니다.
 기준일: 2026-10-09 · 계약: career-public/v1.1
 
-## Stock — 틱 수집과 재현 연구
+## Stock — 틱 수집과 이벤트 기반 백테스트 연구
 
 상태: `in_progress` · 프로젝트 책임: `owner_confirmed`
 [사례 읽기](../projects/stock.md)
@@ -11,8 +11,9 @@
 개인 프로젝트 · End-to-End Project Ownership · AI-Assisted Development
 확인 근거: `owner_statement` · 확인일: 2026-09-22
 
-- `stock-pipeline` — Python, Streamlit, 데이터 파이프라인 — [README.md](https://github.com/Peter-jackson12/Stock/blob/6a6d6076649befc767e5d8d59151cbcfb2f27c34/README.md)
-- `stock-sidecar-tests` — Python, SQLite, pytest — [tests/test_raw_v2_sidecar_lab_boundaries.py](https://github.com/Peter-jackson12/Stock/blob/6a6d6076649befc767e5d8d59151cbcfb2f27c34/tests/test_raw_v2_sidecar_lab_boundaries.py)
+- `stock-pipeline` — Python, Streamlit, 데이터 파이프라인 — [README.md](https://github.com/Peter-jackson12/Stock/blob/dbe99d479cb748fde470c1e3f7196b0f1f0cc5ba/README.md)
+- `stock-sidecar-tests` — Python, SQLite, pytest — [tests/test_raw_v2_sidecar_lab_boundaries.py](https://github.com/Peter-jackson12/Stock/blob/dbe99d479cb748fde470c1e3f7196b0f1f0cc5ba/tests/test_raw_v2_sidecar_lab_boundaries.py)
+- `stock-backtest` — Python, 백테스트, 데이터 파이프라인 — [docs/FAST_BACKTEST_V1.md](https://github.com/Peter-jackson12/Stock/blob/dbe99d479cb748fde470c1e3f7196b0f1f0cc5ba/docs/FAST_BACKTEST_V1.md)
 
 ## Airplane — 지연 예측과 날씨 정보 확장
 

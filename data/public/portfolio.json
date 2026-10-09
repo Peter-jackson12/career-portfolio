@@ -6,10 +6,10 @@
   "projects": [
     {
       "project_id": "stock",
-      "name": "Stock — 틱 수집과 재현 연구",
+      "name": "Stock — 틱 수집과 이벤트 기반 백테스트 연구",
       "repository": "Peter-jackson12/Stock",
       "status": "in_progress",
-      "summary": "원본 체결·호가 보존과 연구 입력 검증, 이벤트 재생의 책임을 분리한 로컬 연구 시스템.",
+      "summary": "주식 체결·호가 원본을 수집·보존하고 이벤트 단위로 재생해 전략을 검증하는 연구 파이프라인. 제한 범위 실제 데이터로 재생·가상체결·재현성을 확인하고 빠른 백테스트와 다조건 실행 구조를 구현했다.",
       "case_study": "projects/stock.md",
       "contribution_status": "owner_confirmed",
       "ownership": {
@@ -24,7 +24,7 @@
           "evidence_id": "stock-pipeline",
           "statement": "수집기·운영 화면·연구 워커를 분리하고 raw-v2 수집부터 입력 검증과 재생까지 단계별 계약을 관리한다.",
           "skills": ["Python", "Streamlit", "데이터 파이프라인"],
-          "source": {"repository": "Peter-jackson12/Stock", "commit": "6a6d6076649befc767e5d8d59151cbcfb2f27c34", "path": "README.md"},
+          "source": {"repository": "Peter-jackson12/Stock", "commit": "dbe99d479cb748fde470c1e3f7196b0f1f0cc5ba", "path": "README.md"},
           "scope": "repository_review",
           "limitations": ["README와 구조를 검토한 근거이며 실데이터 연구 실행 완료나 수익성 입증이 아니다."]
         },
@@ -32,12 +32,20 @@
           "evidence_id": "stock-sidecar-tests",
           "statement": "Windows SQLite sidecar의 부분 정리, 잠금 해제 후 writer 경합, 경로 교체를 합성 회귀로 다룬다.",
           "skills": ["Python", "SQLite", "pytest"],
-          "source": {"repository": "Peter-jackson12/Stock", "commit": "6a6d6076649befc767e5d8d59151cbcfb2f27c34", "path": "tests/test_raw_v2_sidecar_lab_boundaries.py"},
+          "source": {"repository": "Peter-jackson12/Stock", "commit": "dbe99d479cb748fde470c1e3f7196b0f1f0cc5ba", "path": "tests/test_raw_v2_sidecar_lab_boundaries.py"},
           "scope": "repository_review",
           "limitations": ["코드 검토 근거이며 이번 Portfolio 작업에서 Windows 운영 데이터 검증을 실행한 것은 아니다."]
+        },
+        {
+          "evidence_id": "stock-backtest",
+          "statement": "제한 범위 실제 데이터의 이벤트 재생·가상체결·대표 사례 대조·재현성 확인과, 정밀 재생과의 일치를 검증한 screening 전용 빠른 백테스트 및 1,286개 셀 다조건 실행·재개 검증을 기록한다.",
+          "skills": ["Python", "백테스트", "데이터 파이프라인"],
+          "source": {"repository": "Peter-jackson12/Stock", "commit": "dbe99d479cb748fde470c1e3f7196b0f1f0cc5ba", "path": "docs/FAST_BACKTEST_V1.md"},
+          "scope": "repository_review",
+          "limitations": ["저장소의 실행 보고를 검토한 근거이며 원본 데이터로 재실행하지 않았다.", "빠른 백테스트는 screening 전용이고 한 실행에 한 종목·한 날짜만 다룬다."]
         }
       ],
-      "limitations": ["전체 raw 품질 검증과 첫 실데이터 백테스트는 기준 revision에서 미완료다.", "실주문 연결·전략 수익성·단독 구현 기여를 주장하지 않는다."]
+      "limitations": ["전체 원본 데이터의 엄격한 품질 검증과 정식 시험 실행 체크는 기준 revision에서 미완료다.", "실거래 적용·전략 수익성·단독 구현 기여를 주장하지 않는다."]
     },
     {
       "project_id": "airplane",
