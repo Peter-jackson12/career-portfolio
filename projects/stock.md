@@ -1,8 +1,19 @@
-# Stock — 틱 수집과 이벤트 기반 백테스트 연구
+# Stock
+
+**틱 수집과 이벤트 기반 백테스트 연구**
 
 <!-- project: stock; status: in_progress; as_of: 2026-10-09 -->
 
-**상태 검토일 2026-10-09 · 상태: 진행 중 · source revision `dbe99d479cb748fde470c1e3f7196b0f1f0cc5ba`(2026-09-29) · 역할 확인일 2026-09-22**
+[포트폴리오](../README.md) / 대표 프로젝트 01
+
+**진행 중** · 상태 검토일 2026-10-09 · 역할 확인일 2026-09-22  
+Source revision: `dbe99d479cb748fde470c1e3f7196b0f1f0cc5ba` (2026-09-29)
+
+[문제](#problem) · [내 역할](#my-role) · [설계](#architecture--pipeline) · [검증](#validation) · [결과](#results) · [한계](#limitations) · [원본 근거](#repository--evidence)
+
+---
+
+> 원본 보존·품질 판정·재생 검증을 분리한 연구 파이프라인입니다. 제한 범위의 실제 데이터 결과와 전체 원본 데이터 검증을 구분합니다.
 
 ## Problem
 체결·호가를 초봉으로만 변환하면 구간 안의 이벤트 순서와 원래 관측값을 잃을 수 있습니다.

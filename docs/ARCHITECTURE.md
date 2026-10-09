@@ -34,3 +34,11 @@ ownership은 책임 확인이고 evidence는 연결된 근거이며 proficiency/
 고정 snapshot은 원본 프로젝트의 실시간 상태가 아니다. 뒤의 원본 작업이 완료됐더라도
 해당 근거를 읽고 이 저장소를 갱신하기 전에는 기존 snapshot의 한계를 보존한다.
 새 구조와 장기 규칙은 이 문서, 현재 우선순위는 [STATUS](STATUS.md), 세부 계약은 [DATA_MODEL](DATA_MODEL.md)에 둔다.
+
+## 사람용 표현 계층
+
+README와 프로젝트 사례는 GitHub 기본 Markdown 폭에서 단일 열로 읽도록 구성한다.
+표현 자산은 `docs/assets/readme/`에 둔다. 문서 fixture가 포함하는 경로를 사용하며,
+모든 tracked 파일을 UTF-8로 읽는 기존 검사와 호환되도록 정적 SVG만 저장한다.
+색·타이포그래피·접근성·Canva 원본과의 관계는 [표현·디자인 기준](VISUAL_STYLE.md)을 따른다.
+표현 계층은 공개 메타데이터·계약·생성 인덱스의 소유권이나 사실 검증 경계를 바꾸지 않는다.
