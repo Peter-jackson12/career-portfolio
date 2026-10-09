@@ -8,6 +8,7 @@
 | 현재 snapshot, 다음 작업, 미확인 상태 | [STATUS](STATUS.md) | 실시간 PR/CI를 확정하는 주장 |
 | 저장소 구조·생성 순서·Agent 연결 | [ARCHITECTURE](ARCHITECTURE.md) | 개인 경력과 지원 기록 |
 | 공개 데이터와 계약 | [DATA_MODEL](DATA_MODEL.md) | Agent의 private enrichment 모델 |
+| README·사례의 표현과 시각 자산 | [VISUAL_STYLE](VISUAL_STYLE.md) | 성과·분모·책임 범위의 재정의 |
 | 설치·검증·계약 동기화 명령 | [DEVELOPMENT](DEVELOPMENT.md) | 매일의 테스트 수 복제 |
 | 공개 전 개인정보 확인 | [PRIVACY](PRIVACY.md) | 실제 개인정보 값 |
 | 프로젝트 책임 확인의 의미 | [OWNERSHIP](OWNERSHIP.md) | 기술 숙련도/자격 인증 |

@@ -1,8 +1,20 @@
-# Airplane — 항공편 지연 예측과 날씨 정보 확장
+# Airplane
+
+**항공편 지연 예측과 날씨 정보 확장**
 
 <!-- project: airplane; status: in_progress; as_of: 2026-10-09 -->
 
-**기준일 2026-10-09 · 상태: 후속 실험 후보 남음 · source revision `56f91bbe966c86ea7eec7b94103a10ae039b979b`(2026-10-08)** · [Tableau Public 대시보드](https://public.tableau.com/app/profile/.82847805/viz/airplane_portfolio/1)
+[포트폴리오](../README.md) / 대표 프로젝트 02
+
+**후속 실험 후보 남음** · 기준일 2026-10-09  
+Source revision: `56f91bbe966c86ea7eec7b94103a10ae039b979b` (2026-10-08)
+
+[문제](#problem) · [내 역할](#my-role) · [설계](#architecture--pipeline) · [검증](#validation) · [결과](#results) · [한계](#limitations) · [원본 근거](#repository--evidence)  
+[Tableau Public 대시보드 →](https://public.tableau.com/app/profile/.82847805/viz/airplane_portfolio/1)
+
+---
+
+> 전처리의 타당성과 새 정보의 예측력을 별도로 검증했습니다. 전처리 비교 255,001행과 날씨 비교 180,332행은 서로 다른 평가 집단입니다.
 
 ## Problem
 불완전한 항공편 데이터를 단순히 채워 넣으면 모호한 항공사 대응과 시각 의미를 숨길 수 있습니다.

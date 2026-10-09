@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="480" viewBox="0 0 1600 480" role="img" aria-labelledby="title desc">
+  <title id="title">PETER · Data Portfolio</title>
+  <desc id="desc">수집부터 검증, 분석까지. Warm paper background with a restrained editorial title and a thin blue rule.</desc>
+  <metadata>Layout recreated as a static SVG from the Canva design https://www.canva.com/d/Vsd8tKp82C-GXyC. This is not a direct Canva export.</metadata>
+  <rect width="1600" height="480" fill="#FBF8F0"/>
+  <text x="84" y="150" fill="#304750" font-family="Arial, Helvetica, sans-serif" font-size="18" letter-spacing="6">PETER</text>
+  <path d="M84 180H456" stroke="#356A86" stroke-width="1.5" fill="none"/>
+  <text x="478" y="260" fill="#304750" font-family="Arial, Helvetica, sans-serif" font-size="102" font-weight="700" letter-spacing="-4">Data Portfolio</text>
+  <text x="487" y="312" fill="#304750" font-family="'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="25" font-weight="500">수집부터 검증, 분석까지</text>
+</svg>
