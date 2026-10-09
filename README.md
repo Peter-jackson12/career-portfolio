@@ -2,7 +2,7 @@
 
 **데이터 분석·데이터 사이언스 직무를 위한 프로젝트 포트폴리오입니다.**
 Stock과 Airplane은 **개인 프로젝트**입니다. 문제 정의부터 설계·코드 통합·검증 기준·운영과 최종 의사결정까지 책임졌습니다.
-아래 결과는 **2026-09-22에 검토한 고정 revision 기준**이며 실시간 진행률이 아닙니다.
+아래 결과는 **고정 revision 기준**이며(Airplane 2026-10-08, Stock 2026-09-22 검토) 실시간 진행률이 아닙니다.
 
 **바로가기:** [Stock](https://github.com/Peter-jackson12/Stock) · [Airplane](https://github.com/Peter-jackson12/Airplane) · [학습 기록(TIL)](https://github.com/Peter-jackson12/TIL) · [분석·학습 묶음](projects/learning.md)
 
@@ -15,12 +15,13 @@ SQLite sidecar와 writer 경합의 실패 조건을 합성 회귀로 다룹니�
 
 [문제·선택·검증·내 역할](projects/stock.md) · [원본 저장소](https://github.com/Peter-jackson12/Stock)
 
-### Airplane — 지연 분류와 데이터 품질
-전처리의 의미와 예측 성능을 분리해 검토하도록 연구 방향·평가 경계·구현 통합을 맡았습니다.
-**전처리 비교 완료:** 의미는 개선됐지만 Macro F1 향상은 확인하지 못했습니다.
-날씨 수집 이후 전체 결합·모델 비교는 별도 검증 단계입니다.
+### Airplane — 지연 예측과 날씨 정보 확장
+전처리의 의미와 새 정보(날씨)의 예측력을 나눠 검증하도록 연구 방향·평가 경계·구현 통합을 맡았습니다.
+**전처리 수정:** 의미는 개선됐지만 Macro F1 향상은 확인하지 못했습니다.
+**날씨 추가:** 동일 180,332행·동일 폴드 비교에서 Macro F1 0.574 → 0.599 등 세 지표가 세 시드 모두 개선됐습니다(정적 교차검증, 인과 효과 아님).
+분류기 3종 비교·확률 보정까지 진행했고, 결과를 Tableau Public 대시보드 3종으로 게시했습니다.
 
-[분석·결과·한계·내 역할](projects/airplane.md) · [원본 저장소](https://github.com/Peter-jackson12/Airplane)
+[분석·결과·한계·내 역할](projects/airplane.md) · [원본 저장소](https://github.com/Peter-jackson12/Airplane) · [Tableau 대시보드](https://public.tableau.com/app/profile/.82847805/viz/airplane_portfolio/1)
 
 ## 개발 방식과 근거
 

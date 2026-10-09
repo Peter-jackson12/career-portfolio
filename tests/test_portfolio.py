@@ -34,7 +34,7 @@ def copied(tmp_path):
 def test_real_public_contract_and_index():
     portfolio = check(ROOT)
     assert len(portfolio.projects) == 2
-    assert sum(len(p.evidence) for p in portfolio.projects) == 4
+    assert sum(len(p.evidence) for p in portfolio.projects) == 5
     assert render_index(portfolio) == (ROOT / "generated/PROJECT_INDEX.md").read_text(
         encoding="utf-8"
     )

@@ -1,8 +1,8 @@
 # Stock — 틱 수집과 재현 연구
 
-<!-- project: stock; status: in_progress; as_of: 2026-09-22 -->
+<!-- project: stock; status: in_progress; as_of: 2026-10-09 -->
 
-**기준일 2026-09-22 · 상태: 진행 중 · source revision `6a6d6076649befc767e5d8d59151cbcfb2f27c34`**
+**Stock 검토 기준일 2026-09-22(2026-10-09 공개 자료에서 갱신하지 않음) · 상태: 진행 중 · source revision `6a6d6076649befc767e5d8d59151cbcfb2f27c34`**
 
 ## Problem
 체결·호가를 초봉으로만 변환하면 구간 안의 이벤트 순서와 원래 관측값을 잃을 수 있습니다.
