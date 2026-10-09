@@ -4,6 +4,8 @@
 Stock과 Airplane은 **개인 프로젝트**입니다. 문제 정의부터 설계·코드 통합·검증 기준·운영과 최종 의사결정까지 책임졌습니다.
 아래 결과는 **2026-09-22에 검토한 고정 revision 기준**이며 실시간 진행률이 아닙니다.
 
+**바로가기:** [Stock](https://github.com/Peter-jackson12/Stock) · [Airplane](https://github.com/Peter-jackson12/Airplane) · [TIL 학습 일지](https://github.com/Peter-jackson12/TIL) · [분석·학습 묶음](projects/learning.md)
+
 ## 대표 프로젝트
 
 ### Stock — 틱 수집과 재현 연구
@@ -30,12 +32,13 @@ ChatGPT·Claude·Codex/Claude Code를 구현·리뷰·디버깅·테스트·문�
 ## 다른 분석과 학습
 
 [KRX EDA · 추론통계 · 제품 분석](projects/learning.md)을 별도 묶음으로 제공합니다.
+[TIL](https://github.com/Peter-jackson12/TIL)은 2026년 8월부터 이어 온 데이터 사이언스·AI 교육 과정의 학습·실습 일지입니다.
 Stock·Airplane의 개인 프로젝트 확인을 다른 저장소의 개인 기여 확인으로 확대하지 않습니다.
 
 ## 운영 안내
 
 Portfolio는 사람이 읽는 공개 후보 자료, Career Agent는 로컬 지원 준비 시스템입니다.
-현재 접근 설정은 **비공개**이며 연락처·이력서 원본·지원 기록을 추가하지 않습니다.
+현재 공개 저장소이며 연락처·이력서 원본·지원 기록을 추가하지 않습니다.
 [작업 입구](AGENTS.md) · [현재 상태](docs/STATUS.md) · [문서 지도](docs/INDEX.md) · [구조와 파이프라인](docs/ARCHITECTURE.md)
 
 [데이터·연결 계약](docs/DATA_MODEL.md) · [개인정보 점검](docs/PRIVACY.md) ·
