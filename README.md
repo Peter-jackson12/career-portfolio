@@ -4,7 +4,7 @@
 Stock과 Airplane은 **개인 프로젝트**입니다. 문제 정의부터 설계·코드 통합·검증 기준·운영과 최종 의사결정까지 책임졌습니다.
 아래 결과는 **2026-09-22에 검토한 고정 revision 기준**이며 실시간 진행률이 아닙니다.
 
-**바로가기:** [Stock](https://github.com/Peter-jackson12/Stock) · [Airplane](https://github.com/Peter-jackson12/Airplane) · [TIL 학습 일지](https://github.com/Peter-jackson12/TIL) · [분석·학습 묶음](projects/learning.md)
+**바로가기:** [Stock](https://github.com/Peter-jackson12/Stock) · [Airplane](https://github.com/Peter-jackson12/Airplane) · [학습 기록(TIL)](https://github.com/Peter-jackson12/TIL) · [분석·학습 묶음](projects/learning.md)
 
 ## 대표 프로젝트
 
