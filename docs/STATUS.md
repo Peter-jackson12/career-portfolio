@@ -1,17 +1,17 @@
 # 현재 작업 상태
 
-기록일: 2026-09-23. 이 문서는 작업 재개의 지도이며 실시간 원격 상태의 대체물이 아니다.
+기록일: 2026-10-12. 이 문서는 작업 재개의 지도이며 실시간 원격 상태의 대체물이 아니다.
 새 작업에서는 두 저장소 main과 열린 PR의 실제 HEAD/base/CI를 직접 읽는다.
 
 ## 현재 원격 기준점
 
-- Portfolio main: `9903971f268bd3484fc0b2c03872a06b7b8110f5` — 문서 기반 인계 PR #2 병합 상태.
-- merge 후 main CI: Portfolio checks `35834250332` / push / success.
-- Agent main: `252413d0e66c9697bb6ccca2369f55b9f355aa1e` — 회사 facts v2·문서 인계 PR #6 병합 상태.
+- Portfolio 착수 main: `0af632a250e9736b0e0bb02d36c3087de788ef7d` — 웹채팅의 Markdown 디자인 PR #4 병합 상태. 학원 checkout에도 fast-forward 반영했다.
+- 해당 main CI: [Portfolio checks 37890210359 성공](https://github.com/Peter-jackson12/career-portfolio/actions/runs/37890210359).
+- Agent 착수 main: `0aaed6692457aec4dce608487d590bb3886011ae`(v0.44). 학원에서 Windows Hub 검색 테스트의 시각 오탐 수정·로컬 검증과 합성 화면 확인을 수행했다. IAB 원문 열기 제한 등 최신 결론은 [Agent STATUS](https://github.com/Peter-jackson12/career-agent/blob/main/docs/STATUS.md)가 소유한다.
 - 기록 시점에 두 저장소의 열린 PR은 없다. 새 작업 시작 시 다시 확인한다.
 
-PR #2는 운영 입구·구조·문서 책임 분리를 정리한 작업이다.
-공개 JSON·근거 revision·성과·ownership·계약을 변경하지 않았다.
+PR #4는 README·대표 사례의 읽기 구조, SVG 헤더와 표현 기준을 정리한 Markdown 디자인 작업이다.
+이번 현황 정리에서 공개 성과·근거 ID·ownership·계약을 변경하지 않는다. GitHub Pages 배포도 수행하지 않았다.
 원본 Stock/Airplane 프로젝트가 이후 발전해도 이 저장소의 공개 snapshot이 자동 최신화되지는 않는다.
 
 ## 현재 역할
@@ -24,6 +24,8 @@ Agent에서 private workflow를 실제로 실행했더라도 그 사실만으로
 공개 evidence를 수정할 때는 원본 프로젝트의 고정 revision과 근거를 다시 검증한다.
 
 ## 다음 우선순위
+
+현재 디자인은 README와 프로젝트 문서에 반영됐다. 별도 웹사이트 개발·배포 완료로 해석하지 않는다.
 
 1. 공개 성과 snapshot 또는 기술 태그 갱신 요청이 있을 때 Stock/Airplane 원본 근거를 새로 확인해 별도 PR로 처리한다.
 2. Agent의 private 지원 준비가 요구하는 태그를 맞추기 위해 Portfolio evidence를 억지로 추가하지 않는다.

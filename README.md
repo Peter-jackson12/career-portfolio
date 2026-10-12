@@ -62,6 +62,7 @@ ChatGPT·Claude·Codex/Claude Code를 구현·리뷰·디버깅·테스트·문�
 <summary>운영 안내와 문서</summary>
 
 Portfolio는 사람이 읽는 공개 후보 자료, Career Agent는 로컬 지원 준비 시스템입니다.
+현재 디자인은 이 README와 사례 문서에 적용됩니다. 별도 웹사이트 배포 여부는 [현재 상태](docs/STATUS.md)에서 확인합니다.
 현재 공개 저장소이며 연락처·이력서 원본·지원 기록을 추가하지 않습니다.
 
 - **작업 시작:** [작업 입구](AGENTS.md) · [현재 상태](docs/STATUS.md) · [문서 지도](docs/INDEX.md)
