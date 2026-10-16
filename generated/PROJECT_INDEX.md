@@ -23,8 +23,8 @@
 개인 프로젝트 · End-to-End Project Ownership · AI-Assisted Development
 확인 근거: `owner_statement` · 확인일: 2026-09-22
 
-- `airplane-cv` — Python, scikit-learn, 교차검증 — [src/cv.py](https://github.com/Peter-jackson12/Airplane/blob/56f91bbe966c86ea7eec7b94103a10ae039b979b/src/cv.py)
-- `airplane-findings` — Python, LightGBM, 데이터 품질 — [README.md](https://github.com/Peter-jackson12/Airplane/blob/56f91bbe966c86ea7eec7b94103a10ae039b979b/README.md)
-- `airplane-dashboards` — Tableau, 데이터 시각화 — [scripts/build_tableau_extracts.py](https://github.com/Peter-jackson12/Airplane/blob/56f91bbe966c86ea7eec7b94103a10ae039b979b/scripts/build_tableau_extracts.py)
+- `airplane-cv` — Python, scikit-learn, 교차검증 — [src/cv.py](https://github.com/Peter-jackson12/Airplane/blob/616827bcb8496532a30a7be47b14afd64c104677/src/cv.py)
+- `airplane-findings` — Python, LightGBM, 데이터 품질 — [README.md](https://github.com/Peter-jackson12/Airplane/blob/616827bcb8496532a30a7be47b14afd64c104677/README.md)
+- `airplane-dashboards` — Tableau, 데이터 시각화 — [scripts/build_tableau_extracts.py](https://github.com/Peter-jackson12/Airplane/blob/616827bcb8496532a30a7be47b14afd64c104677/scripts/build_tableau_extracts.py)
 
 근거 링크는 파일 위치를 고정할 뿐 개인 기여나 성과를 자동 인증하지 않습니다.
