@@ -5,13 +5,12 @@
 
 ## 현재 원격 기준점
 
-- Portfolio 착수 main: `0af632a250e9736b0e0bb02d36c3087de788ef7d` — 웹채팅의 Markdown 디자인 PR #4 병합 상태. 학원 checkout에도 fast-forward 반영했다.
-- 해당 main CI: [Portfolio checks 37890210359 성공](https://github.com/Peter-jackson12/career-portfolio/actions/runs/37890210359).
-- Agent 착수 main: `0aaed6692457aec4dce608487d590bb3886011ae`(v0.44). 학원에서 Windows Hub 검색 테스트의 시각 오탐 수정·로컬 검증과 합성 화면 확인을 수행했다. IAB 원문 열기 제한 등 최신 결론은 [Agent STATUS](https://github.com/Peter-jackson12/career-agent/blob/main/docs/STATUS.md)가 소유한다.
-- 기록 시점에 두 저장소의 열린 PR은 없다. 새 작업 시작 시 다시 확인한다.
+- Portfolio 착수 main: `4d247cc6de7d52a353904171373b59a114172f6b` — Stock 퀀트 직무 갱신 PR #5 병합 상태.
+- 해당 main CI: [Portfolio checks 38860733002 성공](https://github.com/Peter-jackson12/career-portfolio/actions/runs/38860733002).
+- Agent main: `f25172deb559643dce6abb60328ded2be057b3ad`(비공개 저장소). 최신 결론은 Agent의 docs/STATUS.md가 소유한다.
+- 이 기록 뒤 Portfolio 정리 PR(Airplane revision·링크·PRIVACY)이 이어진다. 새 작업 시작 시 열린 PR을 다시 확인한다.
 
-PR #4는 README·대표 사례의 읽기 구조, SVG 헤더와 표현 기준을 정리한 Markdown 디자인 작업이다.
-이번 현황 정리에서 공개 성과·근거 ID·ownership·계약을 변경하지 않는다. GitHub Pages 배포도 수행하지 않았다.
+GitHub Pages 배포는 수행하지 않았다.
 원본 Stock/Airplane 프로젝트가 이후 발전해도 이 저장소의 공개 snapshot이 자동 최신화되지는 않는다.
 
 ## 2026-10-16 Stock 퀀트 직무 갱신
@@ -20,7 +19,9 @@ PR #4는 README·대표 사례의 읽기 구조, SVG 헤더와 표현 기준을 
 - 원본 Stock 저장소는 2026-10-15 비공개로 전환됐다. 기존 evidence 3개(`dbe99d4…`)는 유지하되 외부 열람자에게는 열리지 않는다.
 - 10/16 추가 사실(수집 운영·원본 검사·비용 모델·사전등록·음수 탐색 결과)은 Git 밖 작성자 로컬 운영 기록이라 사례 본문·summary·limitations에만 쓰고 JSON evidence는 추가하지 않았다. 계약은 바꾸지 않았다.
 - `target_roles`에 퀀트 리서치를 추가했다. ownership(2026-09-22 owner_confirmed)은 그대로다.
-- 운영 반영 예정(2026-10-19)·holdout(2026-10-19~23) 결과는 다음 갱신 대상이며 결과를 미리 쓰지 않는다.
+- 운영 반영 예정(2026-10-19)·holdout(2026-10-19~23)과 장초반 급등 사례 새 날짜 검증 결과는 다음 갱신 대상이며 결과를 미리 쓰지 않는다.
+- Airplane 사례를 `616827b`(2026-10-12) revision으로 옮기고 README의 문제 해결 사례(행 순서 의존 제거·HTTP 503 정정 감사)를 반영했다. 성능 수치는 바뀌지 않았다.
+- `earthquake`(4인 팀 프로젝트, 2026-10-19 종료 예정)와 `ML_3`(README 없음)는 결과·개인 담당 범위가 확정되지 않아 추가하지 않았다.
 
 ## 현재 역할
 

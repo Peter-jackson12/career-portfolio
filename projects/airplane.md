@@ -6,8 +6,8 @@
 
 [포트폴리오](../README.md) / 대표 프로젝트 02
 
-**후속 실험 후보 남음** · 기준일 2026-10-09  
-Source revision: `56f91bbe966c86ea7eec7b94103a10ae039b979b` (2026-10-08)
+**후속 실험 후보 남음** · 기준일 2026-10-16  
+Source revision: `616827bcb8496532a30a7be47b14afd64c104677` (2026-10-12)
 
 [문제](#problem) · [내 역할](#my-role) · [설계](#architecture--pipeline) · [검증](#validation) · [결과](#results) · [한계](#limitations) · [원본 근거](#repository--evidence)  
 [Tableau Public 대시보드 →](https://public.tableau.com/app/profile/.82847805/viz/airplane_portfolio/1)
@@ -57,6 +57,9 @@ ChatGPT·Claude와 Codex/Claude Code를 구현·리뷰·디버깅·테스트·�
 모호한 대응을 첫 관측값으로 채우지 않고, 추정값과 원래 관측값의 이력을 보존합니다.
 `CVConfig`로 평가 설정을 공유하고 early stopping과 임계값 선택이 채점 데이터에 기대지 않도록 구분합니다.
 과거 호환 함수의 교차 fold 의존성 한계도 숨기지 않습니다(`airplane-cv`).
+같은 항공사 코드에 여러 이름이 대응할 때 첫 관측값으로 채우면 원본 행 순서를 뒤집는 것만으로 27,536행의 대치 결과가 달라졌습니다.
+대치 전 관측 대응이 유일한 키만 채우도록 바꿔 이 차이를 0행으로 만들고, 기존 복원 97,056건 중 모호한 66,448건은 결측으로 남겼습니다.
+날씨 수집 감사에서 HTTP 503 오류 25건이 `other`로 집계된 것을 발견했을 때는 원본 실행 기록을 덮어쓰지 않고, 원본 해시를 함께 기록한 별도 정정 감사와 회귀 테스트를 남겼습니다(`airplane-findings`).
 
 ## Validation
 전처리 비교는 10조건 × 3시드 × 5-fold, 날씨 비교는 동일 180,332행·동일 시드(42/1/7)·동일 외부 5-fold의 쌍비교입니다.
@@ -65,13 +68,13 @@ Logistic Regression·Random Forest·LightGBM은 같은 폴드에서 모델별 �
 검증 대상은 정적 라벨 집단이며 미래 운영 성능이나 모든 과거 실행 경로를 인증하지 않습니다.
 
 ## Results
-전처리 의미와 검증 구조는 개선했지만 **전처리 수정만으로는 Macro F1 향상을 확인하지 못했습니다**(`airplane-findings`).
+전처리 의미와 검증 구조는 개선했지만(행 순서 의존 27,536행 → 0행) **전처리 수정만으로는 Macro F1 향상을 확인하지 못했습니다**(`airplane-findings`).
 날씨 14개 피처를 추가하자 Macro F1 0.573910 → 0.598945, LogLoss 0.448116 → 0.436689, ROC-AUC 0.640618 → 0.672936으로
-세 시드 모두 세 지표가 같은 방향으로 개선됐습니다. 주된 구성은 지연 오경보 감소이며 지연 recall 증가는 작았습니다.
+세 시드 모두 세 지표가 같은 방향으로 개선됐습니다. 주된 구성은 지연 오경보 감소이며(지연 precision 약 28.69% → 33.32%) 지연 recall 증가는 작았습니다(약 34.64% → 35.59%).
 같은 조건의 분류기 비교에서는 시험한 탐색 예산 모두에서 Random Forest가 LightGBM·Logistic Regression보다 앞섰고,
 확률 보정은 ECE를 줄였지만 LogLoss·Macro F1과 분류기 순서는 거의 바꾸지 않았습니다.
 결과는 Tableau Public 대시보드 3종(지연 패턴·날씨와 지연·모델 오류)으로 게시했습니다(`airplane-dashboards`).
-수치표 전체는 [기준 결과 설명](https://github.com/Peter-jackson12/Airplane/blob/56f91bbe966c86ea7eec7b94103a10ae039b979b/README.md)과 [대시보드](https://public.tableau.com/app/profile/.82847805/viz/airplane_portfolio/1)에 연결합니다.
+수치표 전체는 [기준 결과 설명](https://github.com/Peter-jackson12/Airplane/blob/616827bcb8496532a30a7be47b14afd64c104677/README.md)과 [대시보드](https://public.tableau.com/app/profile/.82847805/viz/airplane_portfolio/1)에 연결합니다.
 
 ## Limitations
 정적 교차검증의 예측력 차이이며 날씨의 인과 효과나 미래 운항 성능을 뜻하지 않습니다. 배포 모델로 확정하지 않았습니다.
@@ -84,8 +87,8 @@ Logistic Regression·Random Forest·LightGBM은 같은 폴드에서 모델별 �
 성능이 오르지 않은 비교도 다음 정보원을 검토할 근거로 남길 수 있습니다. 이는 기록된 설계와 결과에 대한 해석이며 개인적인 발견 일화는 추가하지 않습니다.
 
 ## Repository / Evidence
-- `airplane-cv`: [공통 평가 설정과 검증 경계](https://github.com/Peter-jackson12/Airplane/blob/56f91bbe966c86ea7eec7b94103a10ae039b979b/src/cv.py)
-- `airplane-findings`: [데이터 분모·결과·한계](https://github.com/Peter-jackson12/Airplane/blob/56f91bbe966c86ea7eec7b94103a10ae039b979b/README.md)
-- `airplane-dashboards`: [Tableau 집계 CSV 생성 스크립트](https://github.com/Peter-jackson12/Airplane/blob/56f91bbe966c86ea7eec7b94103a10ae039b979b/scripts/build_tableau_extracts.py) · [Tableau Public](https://public.tableau.com/app/profile/.82847805/viz/airplane_portfolio/1)
+- `airplane-cv`: [공통 평가 설정과 검증 경계](https://github.com/Peter-jackson12/Airplane/blob/616827bcb8496532a30a7be47b14afd64c104677/src/cv.py)
+- `airplane-findings`: [데이터 분모·결과·한계](https://github.com/Peter-jackson12/Airplane/blob/616827bcb8496532a30a7be47b14afd64c104677/README.md)
+- `airplane-dashboards`: [Tableau 집계 CSV 생성 스크립트](https://github.com/Peter-jackson12/Airplane/blob/616827bcb8496532a30a7be47b14afd64c104677/scripts/build_tableau_extracts.py) · [Tableau Public](https://public.tableau.com/app/profile/.82847805/viz/airplane_portfolio/1)
 
 [포트폴리오 첫 화면](../README.md) · [기계 판독 근거](../data/public/portfolio.json)

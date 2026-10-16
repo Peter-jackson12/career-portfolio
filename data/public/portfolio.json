@@ -67,15 +67,15 @@
           "evidence_id": "airplane-cv",
           "statement": "CVConfig로 평가 설정을 공유하고 inner holdout 모델 선택과 outer 평가 경계를 구분한다.",
           "skills": ["Python", "scikit-learn", "교차검증"],
-          "source": {"repository": "Peter-jackson12/Airplane", "commit": "56f91bbe966c86ea7eec7b94103a10ae039b979b", "path": "src/cv.py"},
+          "source": {"repository": "Peter-jackson12/Airplane", "commit": "616827bcb8496532a30a7be47b14afd64c104677", "path": "src/cv.py"},
           "scope": "repository_review",
           "limitations": ["호환용 과거 함수의 교차 fold 의존성 한계도 코드에 명시돼 있다.", "모든 과거 실행과 미래 운영 성능이 검증됐다는 뜻은 아니다."]
         },
         {
           "evidence_id": "airplane-findings",
-          "statement": "전처리 의미 개선과 Macro F1 향상 미확인을 구분하고, 날짜 귀속 180,332행 동일 조건 비교에서 날씨 추가 시 세 지표가 세 시드 모두 개선된 결과와 분류기 비교의 탐색 예산 한계를 기록한다.",
+          "statement": "모호한 결측 대치를 중단해 행 순서 의존 27,536행을 0행으로 만든 전처리 의미 개선과 Macro F1 향상 미확인을 구분하고, 날짜 귀속 180,332행 동일 조건 비교에서 날씨 추가 시 세 지표가 세 시드 모두 개선된 결과와 분류기 비교의 탐색 예산 한계를 기록한다.",
           "skills": ["Python", "LightGBM", "데이터 품질"],
-          "source": {"repository": "Peter-jackson12/Airplane", "commit": "56f91bbe966c86ea7eec7b94103a10ae039b979b", "path": "README.md"},
+          "source": {"repository": "Peter-jackson12/Airplane", "commit": "616827bcb8496532a30a7be47b14afd64c104677", "path": "README.md"},
           "scope": "repository_review",
           "limitations": ["원본·대용량 cache는 Git에 없어 이번 검토에서 모델 실험을 재실행하지 않았다.", "정적 교차검증의 예측력 차이이며 날씨의 인과 효과나 미래 운항 성능을 주장하지 않는다."]
         },
@@ -83,7 +83,7 @@
           "evidence_id": "airplane-dashboards",
           "statement": "기존 실행 근거를 집계 CSV 15개로 정리해 지연 패턴·날씨와 지연·모델 오류의 Tableau Public 대시보드 3종을 게시한다.",
           "skills": ["Tableau", "데이터 시각화"],
-          "source": {"repository": "Peter-jackson12/Airplane", "commit": "56f91bbe966c86ea7eec7b94103a10ae039b979b", "path": "scripts/build_tableau_extracts.py"},
+          "source": {"repository": "Peter-jackson12/Airplane", "commit": "616827bcb8496532a30a7be47b14afd64c104677", "path": "scripts/build_tableau_extracts.py"},
           "scope": "repository_review",
           "limitations": ["대시보드는 새 모델 학습 없이 기존 결과를 탐색하며, 구간별 관측 비율은 연관이지 원인이 아니다."]
         }

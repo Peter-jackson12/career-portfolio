@@ -16,7 +16,7 @@
 | 이후 방향·과거 검토 | [ROADMAP](ROADMAP.md), [감사 기록](AUDIT_20260922.md) | 완료되지 않은 기능을 완료로 표시 |
 
 ## 두 저장소의 문서 책임
-[Career Agent](https://github.com/Peter-jackson12/career-agent)가 전체 취업 파이프라인, 회사 facts/선호 정책,
+Career Agent(비공개 저장소 `Peter-jackson12/career-agent`)가 전체 취업 파이프라인, 회사 facts/선호 정책,
 원격·로컬 운영 절차와 짧은 인계 템플릿을 소유한다. 해당 저장소의 AGENTS.md와 docs/INDEX.md에서 시작한다.
 Portfolio에는 공개 근거와 계약 소비/생성 경계만 둔다. Agent private 자료를 역방향으로 받지 않는다.
 두 저장소 PR이 아직 병합되지 않았다면 그 PR HEAD에서 신규 문서를 읽는다.
