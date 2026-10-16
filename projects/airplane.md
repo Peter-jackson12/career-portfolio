@@ -2,7 +2,7 @@
 
 **항공편 지연 예측과 날씨 정보 확장**
 
-<!-- project: airplane; status: in_progress; as_of: 2026-10-09 -->
+<!-- project: airplane; status: in_progress; as_of: 2026-10-16 -->
 
 [포트폴리오](../README.md) / 대표 프로젝트 02
 

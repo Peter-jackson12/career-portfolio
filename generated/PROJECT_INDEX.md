@@ -1,9 +1,9 @@
 # 프로젝트 근거 인덱스
 
 자동 생성 파일입니다. 직접 수정하지 않습니다.
-기준일: 2026-10-09 · 계약: career-public/v1.1
+기준일: 2026-10-16 · 계약: career-public/v1.1
 
-## Stock — 틱 수집과 이벤트 기반 백테스트 연구
+## Stock — 실시간 틱 수집 운영과 비용 반영 전략 검증 연구
 
 상태: `in_progress` · 프로젝트 책임: `owner_confirmed`
 [사례 읽기](../projects/stock.md)
