@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="990" viewBox="0 0 1200 990" role="img" aria-labelledby="title desc" font-family="'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', Arial, Helvetica, sans-serif">
+  <title id="title">AI TOP 100 예선 과제 구조</title>
+  <desc id="desc">수집 자료와 자체 전송 도구로 모은 대화를 정제·검산 스크립트로 다듬어 행마다 출처가 있는 사실 원장을 만들고, 프롬프트 생성과 배포 스크립트를 거쳐 로컬 봇 서버에 올립니다. 일괄 시험 결과는 사실 원장으로 되돌립니다. 봇 서버는 메신저 채널, LLM 1차·예비, 외부 업무 서버와 연결되고 watchdog이 자동으로 재시작합니다. 공식 점수는 안내되지 않고 대회 문제 내용은 공개하지 않습니다.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#356A86"/></marker></defs>
+  <rect width="1200" height="990" fill="#FBF8F0"/>
+  <text x="60" y="66" fill="#304750" font-size="34" font-weight="700" text-anchor="start">AI TOP 100 예선 과제 구조</text>
+  <text x="60" y="106" fill="#61727A" font-size="23" font-weight="400" text-anchor="start">출처 있는 사실만 답의 근거로 삼고, 제출 뒤에는 사람 없이 돌아가게 준비했습니다</text>
+  <text x="60" y="160" fill="#356A86" font-size="23" font-weight="700" text-anchor="start">준비 · 자료에서 배포까지</text>
+  <path d="M60 172H1140" stroke="#D7DCD9" stroke-width="1.5" fill="none"/>
+  <g class="node">
+  <rect x="60" y="180" width="320" height="120" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="220.0" y="217.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">수집 자료·대화</text>
+  <text x="220.0" y="248.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">승인한 질문만 보내는</text>
+  <text x="220.0" y="279.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">자체 전송 도구</text>
+  </g>
+  <g class="node">
+  <rect x="440" y="190" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="600.0" y="247.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">정제·검산 스크립트</text>
+  </g>
+  <g class="node">
+  <rect x="820" y="190" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#356A86" stroke-width="2.5"/>
+  <text x="980.0" y="232.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">사실 원장</text>
+  <text x="980.0" y="263.0" fill="#304750" font-size="21" font-weight="400" text-anchor="middle">행마다 출처</text>
+  </g>
+  <path d="M380 240L438 240" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M760 240L818 240" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <g class="node">
+  <rect x="440" y="340" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="600.0" y="382.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">일괄 시험</text>
+  <text x="600.0" y="413.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">키워드, 2차 채점, 사람 판정</text>
+  </g>
+  <g class="node">
+  <rect x="820" y="340" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="980.0" y="382.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">프롬프트 생성</text>
+  <text x="980.0" y="413.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">본문 + 도구 정의</text>
+  </g>
+  <path d="M1020 290L1020 338" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M820 390L762 390" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M600 340V315H900V292" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="620" y="306" fill="#61727A" font-size="21" font-weight="400" text-anchor="start">결과 반영</text>
+  <g class="node">
+  <rect x="820" y="490" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="980.0" y="532.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">배포 스크립트</text>
+  <text x="980.0" y="563.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">sha·길이 검사</text>
+  </g>
+  <path d="M980 440L980 488" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="60" y="630" fill="#356A86" font-size="23" font-weight="700" text-anchor="start">운영 · 제출 뒤 사람 조작 없이</text>
+  <path d="M60 642H1140" stroke="#D7DCD9" stroke-width="1.5" fill="none"/>
+  <g class="node">
+  <rect x="60" y="660" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="220.0" y="717.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">메신저 채널</text>
+  </g>
+  <g class="node">
+  <rect x="440" y="660" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#356A86" stroke-width="2.5"/>
+  <text x="600.0" y="717.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">로컬 봇 서버</text>
+  </g>
+  <g class="node">
+  <rect x="820" y="660" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="980.0" y="702.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">LLM</text>
+  <text x="980.0" y="733.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">1차·예비</text>
+  </g>
+  <path d="M820 590H600V658" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M380 700L438 700" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M440 720L382 720" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M760 700L818 700" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M820 720L762 720" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <g class="node">
+  <rect x="60" y="810" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="220.0" y="852.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">watchdog</text>
+  <text x="220.0" y="883.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">자동 재시작</text>
+  </g>
+  <g class="node">
+  <rect x="820" y="810" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="980.0" y="867.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">외부 업무 서버</text>
+  </g>
+  <path d="M380 860H520V762" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M680 760V845H818" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M820 875H640V762" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="60" y="950" fill="#61727A" font-size="21" font-weight="400" text-anchor="start">공식 점수는 안내되지 않습니다. 대회 문제 내용은 대회 안내상 공개하지 않습니다.</text>
+</svg>
