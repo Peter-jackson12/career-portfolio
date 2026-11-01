@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1030" viewBox="0 0 1200 1030" role="img" aria-labelledby="title desc" font-family="'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', Arial, Helvetica, sans-serif">
+  <title id="title">Stock 시스템 구조</title>
+  <desc id="desc">수집: 시세 공급원에서 수집 프로세스를 거쳐 원본 저장소에 저장하고 종료 후 검사기가 검사하며 보관 저장소에 사본을 둡니다. 연구: 매일 준비 작업이 연구 입력을 만들고 틱 재생기와 전략 모듈을 거쳐 결과 저장소에 기록합니다. 2026-11-01 기준 채택된 후보는 없습니다. 운영 반영, 원본 읽기, 재처리는 사람 승인 뒤에만 진행합니다. 모의매매: 연결 시험 준비 단계이며 전체 경로는 미완료입니다. 실거래는 하지 않습니다.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#356A86"/></marker></defs>
+  <rect width="1200" height="1030" fill="#FBF8F0"/>
+  <text x="60" y="66" fill="#304750" font-size="34" font-weight="700" text-anchor="start">Stock 시스템 구조</text>
+  <text x="60" y="106" fill="#61727A" font-size="23" font-weight="400" text-anchor="start">수집·연구·모의매매 세 갈래는 진행 단계가 서로 다릅니다 (2026-11-01 기준)</text>
+  <text x="60" y="160" fill="#356A86" font-size="23" font-weight="700" text-anchor="start">수집 · 매 거래일 운영 중</text>
+  <path d="M60 172H1140" stroke="#D7DCD9" stroke-width="1.5" fill="none"/>
+  <g class="node">
+  <rect x="60" y="190" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="220.0" y="232.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">시세 공급원</text>
+  <text x="220.0" y="263.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">실시간 체결·호가</text>
+  </g>
+  <g class="node">
+  <rect x="440" y="190" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="600.0" y="232.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">수집 프로세스</text>
+  <text x="600.0" y="263.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">원문 필드 13개 저장</text>
+  </g>
+  <g class="node">
+  <rect x="820" y="190" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="980.0" y="232.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">수집 콘솔</text>
+  <text x="980.0" y="263.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">사람이 시작·상태 확인</text>
+  </g>
+  <path d="M380 240L438 240" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M820 240L762 240" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <g class="node">
+  <rect x="60" y="340" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="220.0" y="382.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">보관 저장소</text>
+  <text x="220.0" y="413.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">보조 디스크 사본·해시 대조</text>
+  </g>
+  <g class="node">
+  <rect x="440" y="340" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="600.0" y="382.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">원본 저장소</text>
+  <text x="600.0" y="413.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">날짜별 원본 이벤트</text>
+  </g>
+  <g class="node">
+  <rect x="820" y="340" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="980.0" y="382.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">종료 후 검사기</text>
+  <text x="980.0" y="413.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">순번·형식·체크섬·회계 대조</text>
+  </g>
+  <path d="M600 290L600 338" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M440 390L382 390" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M760 390L818 390" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="60" y="490" fill="#356A86" font-size="23" font-weight="700" text-anchor="start">연구 · 탐색 단계 · 2026-11-01 기준 채택된 후보 없음</text>
+  <path d="M60 502H1140" stroke="#D7DCD9" stroke-width="1.5" fill="none"/>
+  <g class="node">
+  <rect x="60" y="520" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="220.0" y="562.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">연구 입력 저장소</text>
+  <text x="220.0" y="593.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">검사가 끝난 날짜의 가공 입력</text>
+  </g>
+  <g class="node">
+  <rect x="440" y="520" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="600.0" y="562.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">매일 준비 작업</text>
+  <text x="600.0" y="593.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">평일 야간 예약 실행</text>
+  </g>
+  <g class="node">
+  <rect x="820" y="510" width="320" height="120" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="980.0" y="547.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">사람 승인 카드</text>
+  <text x="980.0" y="578.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">운영 반영·원본 읽기·재처리는</text>
+  <text x="980.0" y="609.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">승인 뒤에만</text>
+  </g>
+  <path d="M600 440L600 518" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M440 570L382 570" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <g class="node">
+  <rect x="60" y="670" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="220.0" y="712.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">틱 재생기·백테스트 엔진</text>
+  <text x="220.0" y="743.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">틱 단위로 재생</text>
+  </g>
+  <g class="node">
+  <rect x="440" y="670" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="600.0" y="712.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">전략 모듈·가상 브로커</text>
+  <text x="600.0" y="743.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">주문·부분체결·취소를 모의</text>
+  </g>
+  <g class="node">
+  <rect x="820" y="670" width="320" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="980.0" y="712.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">결과 저장소</text>
+  <text x="980.0" y="743.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">신호·주문·체결·거래·자본 곡선</text>
+  </g>
+  <path d="M220 620L220 668" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M380 720L438 720" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M760 720L818 720" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="60" y="820" fill="#356A86" font-size="23" font-weight="700" text-anchor="start">모의매매 · 준비 단계 · 실제 시세와 주문을 잇는 전체 경로는 미완료</text>
+  <path d="M60 832H1140" stroke="#D7DCD9" stroke-width="1.5" fill="none"/>
+  <g class="node">
+  <rect x="60" y="850" width="500" height="100" rx="4" fill="#FFFFFF" stroke="#356A86" stroke-width="2.5" stroke-dasharray="8 6"/>
+  <text x="310.0" y="892.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">모의 계좌 연결 시험</text>
+  <text x="310.0" y="923.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">연구 경로와 연결되지 않은 별도 경로</text>
+  </g>
+  <text x="600" y="908" fill="#304750" font-size="23" font-weight="700" text-anchor="start">실거래는 하지 않습니다.</text>
+</svg>

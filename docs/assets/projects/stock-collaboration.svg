@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1110" viewBox="0 0 1200 1110" role="img" aria-labelledby="title desc" font-family="'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', Arial, Helvetica, sans-serif">
+  <title id="title">Stock 사람과 에이전트의 역할</title>
+  <desc id="desc">사용자가 결정하고 총괄 타워가 결정 기록과 승인 전달을 맡습니다. 운영·실행 타워와 연구 타워가 구현 작업 세션에 일을 나누고, 작성 모델과 다른 모델이 독립 리뷰를 합니다. 통과한 작업은 실무 타워가 총괄 타워에 결정을 요청하고, 총괄 타워가 사용자에게 물어 답을 돌려줍니다. 승인 뒤 실행은 타워가 합니다. 에이전트가 스스로 주문을 시작하지 않습니다.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#356A86"/></marker></defs>
+  <rect width="1200" height="1110" fill="#FBF8F0"/>
+  <text x="60" y="66" fill="#304750" font-size="34" font-weight="700" text-anchor="start">사람과 에이전트의 역할</text>
+  <text x="60" y="106" fill="#61727A" font-size="23" font-weight="400" text-anchor="start">결정과 승인은 사람이, 구현과 리뷰는 서로 다른 에이전트가 맡습니다</text>
+  <g class="node">
+  <rect x="320" y="140" width="560" height="90" rx="4" fill="#FFFFFF" stroke="#356A86" stroke-width="2.5"/>
+  <text x="600.0" y="192.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">사용자 (결정자)</text>
+  </g>
+  <path d="M580 230L580 268" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M620 270L620 232" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <g class="node">
+  <rect x="320" y="270" width="560" height="110" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="600.0" y="317.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">총괄 타워</text>
+  <text x="600.0" y="348.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">결정 기록·우선순위·승인 전달</text>
+  </g>
+  <path d="M500 380V410H320V438" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M700 380V410H880V438" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <g class="node">
+  <rect x="60" y="440" width="520" height="110" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="320.0" y="487.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">운영·실행 타워</text>
+  <text x="320.0" y="518.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">수집·반영·보관·매일 파이프라인</text>
+  </g>
+  <g class="node">
+  <rect x="620" y="440" width="520" height="110" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="880.0" y="487.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">연구 타워</text>
+  <text x="880.0" y="518.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">연구 일·전송 전 날짜 확인</text>
+  </g>
+  <path d="M320 550V580H500V608" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M880 550V580H700V608" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <g class="node">
+  <rect x="320" y="610" width="560" height="110" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="600.0" y="657.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">구현 작업 세션</text>
+  <text x="600.0" y="688.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">범위가 분명한 일</text>
+  </g>
+  <path d="M600 720L600 758" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <g class="node">
+  <rect x="320" y="760" width="560" height="110" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="600.0" y="807.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">독립 리뷰</text>
+  <text x="600.0" y="838.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">일반·고난도·중요 3등급, 다른 모델이 검토</text>
+  </g>
+  <path d="M320 815H240V665H318" stroke="#356A86" stroke-width="2" fill="none" stroke-dasharray="8 6" marker-end="url(#arrow)"/>
+  <text x="70" y="745" fill="#61727A" font-size="21" font-weight="400" text-anchor="start">실패 시</text>
+  <text x="70" y="775" fill="#61727A" font-size="21" font-weight="400" text-anchor="start">재검 1회</text>
+  <path d="M600 870L600 908" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <g class="node">
+  <rect x="320" y="910" width="560" height="90" rx="4" fill="#FFFFFF" stroke="#356A86" stroke-width="2.5"/>
+  <text x="600.0" y="962.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">사람 승인 카드 → 승인 뒤 타워가 실행</text>
+  </g>
+  <path d="M880 955H1170V325H882" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="1000" y="930" fill="#61727A" font-size="21" font-weight="400" text-anchor="start">결정 요청</text>
+  <text x="60" y="1050" fill="#61727A" font-size="21" font-weight="400" text-anchor="start">에이전트가 스스로 주문을 시작하지 않습니다. 모의 주문도 사람이 시작을 말한 뒤에만 실행합니다.</text>
+  <text x="60" y="1082" fill="#61727A" font-size="21" font-weight="400" text-anchor="start">읽기 전용·집계·문서만 바꾸는 저위험 변경은 리뷰를 생략하고 이유를 적습니다.</text>
+</svg>

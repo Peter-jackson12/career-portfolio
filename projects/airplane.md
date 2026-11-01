@@ -2,19 +2,32 @@
 
 **항공편 지연 예측과 날씨 정보 확장**
 
-<!-- project: airplane; status: in_progress; as_of: 2026-10-16 -->
+<!-- project: airplane; status: in_progress; as_of: 2026-11-01 -->
 
 [포트폴리오](../README.md) / 대표 프로젝트 02
 
-**후속 실험 후보 남음** · 기준일 2026-10-16  
-Source revision: `616827bcb8496532a30a7be47b14afd64c104677` (2026-10-12)
+**후속 실험 후보 남음** · 기준일 2026-11-01  
+Source revision: `6a175683516d62b90069b4aa3496bdb7c5a00e9f` (2026-10-12)
 
-[문제](#problem) · [내 역할](#my-role) · [설계](#architecture--pipeline) · [검증](#validation) · [결과](#results) · [한계](#limitations) · [원본 근거](#repository--evidence)  
+[한눈에 보기](#한눈에-보기) · [문제](#problem) · [내 역할](#my-role) · [설계](#architecture--pipeline) · [검증](#validation) · [결과](#results) · [한계](#limitations) · [원본 근거](#repository--evidence)  
 [Tableau Public 대시보드 →](https://public.tableau.com/app/profile/.82847805/viz/airplane_portfolio/1)
 
 ---
 
 > 전처리의 타당성과 새 정보의 예측력을 별도로 검증했습니다. 전처리 비교 255,001행과 날씨 비교 180,332행은 서로 다른 평가 집단입니다.
+
+## 한눈에 보기
+
+| 항목 | 내용 |
+|---|---|
+| **질문** | 전처리를 고치면 성능이 오르는가, 날씨 정보를 더하면 오르는가를 따로 검증 |
+| **데이터** | 항공편 100만 행, 라벨 255,001행, 날씨 비교 180,332행 |
+| **핵심 결과** | 날씨 14개 피처 추가로 Macro F1 0.574 → 0.599, 세 시드 모두 개선 |
+| **개선되지 않은 것** | 전처리 수정만으로는 Macro F1 향상을 확인하지 못함 |
+| **역할** | 개인 프로젝트, 문제 정의부터 검증 기준과 최종 판단까지 |
+| **사용 기술** | Python · LightGBM · scikit-learn · pandas · Tableau |
+
+![Airplane 분석 구조: 원본 100만 행에서 전처리 질문과 날씨 질문을 나누어 서로 다른 평가 집단에서 검증한 흐름](../docs/assets/projects/airplane-pipeline.svg)
 
 ## Problem
 불완전한 항공편 데이터를 단순히 채워 넣으면 모호한 항공사 대응과 시각 의미를 숨길 수 있습니다.
@@ -46,9 +59,11 @@ ChatGPT·Claude와 Codex/Claude Code를 구현·리뷰·디버깅·테스트·�
 외부 BTS 자료로 뒷받침되는 행만 날짜를 채택하고 날씨 확장으로 연결합니다.
 
 ## Architecture / Pipeline
+[한눈에 보기](#한눈에-보기)의 구조도를 단계 순서로 풀면 다음과 같습니다.
+
 ```text
-원본 품질 점검 → 의미 보존 전처리 → inner 선택 / outer 평가 → OOF 비교
-별도 확장: 날짜 귀속 → station·시각 계약 → 날씨 수집 → point-in-time 결합 → 날씨 유무 비교 → 분류기 비교·확률 보정
+원본 품질 점검 → 의미 보존 전처리 → 내부 선택 / 외부 채점 → 폴드 밖 예측(OOF) 비교
+별도 확장: 날짜 귀속 → 공항·시각 계약 → 날씨 수집 → 시점 정합 결합 → 날씨 유무 비교 → 분류기 비교·확률 보정
 공개: 기존 실행 근거 → 집계 CSV 15개 → Tableau Public 대시보드 3종
 ```
 예측 시점 이후 관측은 결합하지 않으며, 날씨 공개 지연 10분은 실측이 아닌 사전 가정입니다.
@@ -68,13 +83,28 @@ Logistic Regression·Random Forest·LightGBM은 같은 폴드에서 모델별 �
 검증 대상은 정적 라벨 집단이며 미래 운영 성능이나 모든 과거 실행 경로를 인증하지 않습니다.
 
 ## Results
-전처리 의미와 검증 구조는 개선했지만(행 순서 의존 27,536행 → 0행) **전처리 수정만으로는 Macro F1 향상을 확인하지 못했습니다**(`airplane-findings`).
-날씨 14개 피처를 추가하자 Macro F1 0.573910 → 0.598945, LogLoss 0.448116 → 0.436689, ROC-AUC 0.640618 → 0.672936으로
-세 시드 모두 세 지표가 같은 방향으로 개선됐습니다. 주된 구성은 지연 오경보 감소이며(지연 precision 약 28.69% → 33.32%) 지연 recall 증가는 작았습니다(약 34.64% → 35.59%).
-같은 조건의 분류기 비교에서는 시험한 탐색 예산 모두에서 Random Forest가 LightGBM·Logistic Regression보다 앞섰고,
-확률 보정은 ECE를 줄였지만 LogLoss·Macro F1과 분류기 순서는 거의 바꾸지 않았습니다.
-결과는 Tableau Public 대시보드 3종(지연 패턴·날씨와 지연·모델 오류)으로 게시했습니다(`airplane-dashboards`).
-수치표 전체는 [기준 결과 설명](https://github.com/Peter-jackson12/Airplane/blob/616827bcb8496532a30a7be47b14afd64c104677/README.md)과 [대시보드](https://public.tableau.com/app/profile/.82847805/viz/airplane_portfolio/1)에 연결합니다.
+**전처리:** 의미와 검증 구조는 개선했지만(행 순서 의존 27,536행 → 0행) **전처리 수정만으로는 Macro F1 향상을 확인하지 못했습니다**(`airplane-findings`).
+
+**날씨 14개 피처 추가:** 동일 180,332행·동일 폴드의 세 시드 평균입니다. 세 시드 모두 세 지표가 같은 방향으로 개선됐습니다.
+
+| 지표 | 날씨 없음 | 날씨 포함 | 좋은 방향 |
+|---|---:|---:|---|
+| Macro F1 | 0.573910 | 0.598945 | 높을수록 |
+| LogLoss | 0.448116 | 0.436689 | 낮을수록 |
+| ROC-AUC | 0.640618 | 0.672936 | 높을수록 |
+
+![날씨 사용 여부에 따른 Macro F1, LogLoss, ROC-AUC 비교. 동일 180,332행, 시드 42/1/7, 세 시드 평균](https://raw.githubusercontent.com/Peter-jackson12/Airplane/6a175683516d62b90069b4aa3496bdb7c5a00e9f/assets/readme/weather_model_comparison.svg)
+
+개선의 주된 구성은 지연 오경보 감소입니다(지연 precision 약 28.69% → 33.32%). 지연 recall 증가는 작았습니다(약 34.64% → 35.59%).
+
+**분류기와 확률 보정:** 같은 조건의 분류기 비교에서는 시험한 탐색 예산 모두에서 Random Forest가 LightGBM·Logistic Regression보다 앞섰습니다.
+확률 보정은 ECE(예측 확률의 보정 오차)를 줄였지만 LogLoss·Macro F1과 분류기 순서는 거의 바꾸지 않았습니다.
+
+**결과 전달:** Tableau Public 대시보드 3종(지연 패턴·날씨와 지연·모델 오류)으로 게시했습니다(`airplane-dashboards`).
+
+[![날씨 평가 집단의 기상 구간별 실제 지연 비율과 날씨 사용 여부에 따른 모델 지표를 보여 주는 Tableau 대시보드](https://raw.githubusercontent.com/Peter-jackson12/Airplane/6a175683516d62b90069b4aa3496bdb7c5a00e9f/assets/readme/tableau_weather_delay.png)](https://public.tableau.com/app/profile/.82847805/viz/airplane_portfolio/1)
+
+수치표 전체는 [기준 결과 설명](https://github.com/Peter-jackson12/Airplane/blob/6a175683516d62b90069b4aa3496bdb7c5a00e9f/README.md)과 [대시보드](https://public.tableau.com/app/profile/.82847805/viz/airplane_portfolio/1)에 연결합니다.
 
 ## Limitations
 정적 교차검증의 예측력 차이이며 날씨의 인과 효과나 미래 운항 성능을 뜻하지 않습니다. 배포 모델로 확정하지 않았습니다.
@@ -87,8 +117,8 @@ Logistic Regression·Random Forest·LightGBM은 같은 폴드에서 모델별 �
 성능이 오르지 않은 비교도 다음 정보원을 검토할 근거로 남길 수 있습니다. 이는 기록된 설계와 결과에 대한 해석이며 개인적인 발견 일화는 추가하지 않습니다.
 
 ## Repository / Evidence
-- `airplane-cv`: [공통 평가 설정과 검증 경계](https://github.com/Peter-jackson12/Airplane/blob/616827bcb8496532a30a7be47b14afd64c104677/src/cv.py)
-- `airplane-findings`: [데이터 분모·결과·한계](https://github.com/Peter-jackson12/Airplane/blob/616827bcb8496532a30a7be47b14afd64c104677/README.md)
-- `airplane-dashboards`: [Tableau 집계 CSV 생성 스크립트](https://github.com/Peter-jackson12/Airplane/blob/616827bcb8496532a30a7be47b14afd64c104677/scripts/build_tableau_extracts.py) · [Tableau Public](https://public.tableau.com/app/profile/.82847805/viz/airplane_portfolio/1)
+- `airplane-cv`: [공통 평가 설정과 검증 경계](https://github.com/Peter-jackson12/Airplane/blob/6a175683516d62b90069b4aa3496bdb7c5a00e9f/src/cv.py)
+- `airplane-findings`: [데이터 분모·결과·한계](https://github.com/Peter-jackson12/Airplane/blob/6a175683516d62b90069b4aa3496bdb7c5a00e9f/README.md)
+- `airplane-dashboards`: [Tableau 집계 CSV 생성 스크립트](https://github.com/Peter-jackson12/Airplane/blob/6a175683516d62b90069b4aa3496bdb7c5a00e9f/scripts/build_tableau_extracts.py) · [Tableau Public](https://public.tableau.com/app/profile/.82847805/viz/airplane_portfolio/1)
 
 [포트폴리오 첫 화면](../README.md) · [기계 판독 근거](../data/public/portfolio.json)

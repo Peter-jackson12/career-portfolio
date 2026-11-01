@@ -1,7 +1,7 @@
 # 프로젝트 근거 인덱스
 
 자동 생성 파일입니다. 직접 수정하지 않습니다.
-기준일: 2026-10-16 · 계약: career-public/v1.1
+기준일: 2026-11-01 · 계약: career-public/v1.1
 
 ## Stock — 실시간 틱 수집 운영과 비용 반영 전략 검증 연구
 
@@ -23,8 +23,8 @@
 개인 프로젝트 · End-to-End Project Ownership · AI-Assisted Development
 확인 근거: `owner_statement` · 확인일: 2026-09-22
 
-- `airplane-cv` — Python, scikit-learn, 교차검증 — [src/cv.py](https://github.com/Peter-jackson12/Airplane/blob/616827bcb8496532a30a7be47b14afd64c104677/src/cv.py)
-- `airplane-findings` — Python, LightGBM, 데이터 품질 — [README.md](https://github.com/Peter-jackson12/Airplane/blob/616827bcb8496532a30a7be47b14afd64c104677/README.md)
-- `airplane-dashboards` — Tableau, 데이터 시각화 — [scripts/build_tableau_extracts.py](https://github.com/Peter-jackson12/Airplane/blob/616827bcb8496532a30a7be47b14afd64c104677/scripts/build_tableau_extracts.py)
+- `airplane-cv` — Python, scikit-learn, 교차검증 — [src/cv.py](https://github.com/Peter-jackson12/Airplane/blob/6a175683516d62b90069b4aa3496bdb7c5a00e9f/src/cv.py)
+- `airplane-findings` — Python, LightGBM, 데이터 품질 — [README.md](https://github.com/Peter-jackson12/Airplane/blob/6a175683516d62b90069b4aa3496bdb7c5a00e9f/README.md)
+- `airplane-dashboards` — Tableau, 데이터 시각화 — [scripts/build_tableau_extracts.py](https://github.com/Peter-jackson12/Airplane/blob/6a175683516d62b90069b4aa3496bdb7c5a00e9f/scripts/build_tableau_extracts.py)
 
 근거 링크는 파일 위치를 고정할 뿐 개인 기여나 성과를 자동 인증하지 않습니다.

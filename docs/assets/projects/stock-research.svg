@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1210" viewBox="0 0 1200 1210" role="img" aria-labelledby="title desc" font-family="'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', Arial, Helvetica, sans-serif">
+  <title id="title">Stock 연구 판정 흐름</title>
+  <desc id="desc">탐색 풀에서 먼저 탐색하고 사후 탐색으로 표시하며 과최적 정도를 함께 보고합니다. 이어서 사전등록으로 후보, 기간, 비용, 규칙을 고정하고 독립 리뷰를 통과하면 동결합니다. 아직 쓰지 않은 새 날짜에 적용하되 검증 근거는 미리 배정한 검증 풀에서만 얻고, 판정합니다. 기준을 충족하지 못하면 후보가 아니고, 후보여도 채택은 더 많은 새 기간 적용 뒤 판단합니다. 새 아이디어는 다시 탐색부터 시작하고, 판정에는 새 사전등록과 새 날짜가 필요합니다. 검증 풀 단계까지 간 후보는 2026-11-01 기준 없습니다. 2026-11-01 기준 채택된 후보는 없습니다.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#356A86"/></marker></defs>
+  <rect width="1200" height="1210" fill="#FBF8F0"/>
+  <text x="60" y="66" fill="#304750" font-size="34" font-weight="700" text-anchor="start">연구 판정 흐름</text>
+  <text x="60" y="106" fill="#61727A" font-size="23" font-weight="400" text-anchor="start">판정에 쓸 날짜의 결과를 보기 전에 규칙을 고정하고, 본 뒤에는 바꾸지 않습니다</text>
+  <g class="node">
+  <rect x="260" y="140" width="680" height="110" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="600.0" y="187.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">탐색</text>
+  <text x="600.0" y="218.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">탐색 풀에서 실행, 사후 탐색으로 표시하고 과최적 정도를 함께 보고</text>
+  </g>
+  <path d="M600.0 250L600.0 272" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <g class="node">
+  <rect x="260" y="274" width="680" height="110" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="600.0" y="321.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">사전등록</text>
+  <text x="600.0" y="352.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">후보·기간·비용·규칙 고정</text>
+  </g>
+  <path d="M600.0 384L600.0 406" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <g class="node">
+  <rect x="260" y="408" width="680" height="110" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="600.0" y="455.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">독립 리뷰</text>
+  <text x="600.0" y="486.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">작업 무게별 3등급, 작성 모델과 다른 모델이 검토</text>
+  </g>
+  <path d="M600.0 518L600.0 540" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <g class="node">
+  <rect x="260" y="542" width="680" height="110" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="600.0" y="589.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">동결</text>
+  <text x="600.0" y="620.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">동결본은 고치지 않고, 변경은 부록·새 판으로 남김</text>
+  </g>
+  <path d="M600.0 652L600.0 674" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <g class="node">
+  <rect x="260" y="676" width="680" height="110" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="600.0" y="723.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">아직 쓰지 않은 새 날짜 적용</text>
+  <text x="600.0" y="754.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">검증 근거는 미리 배정한 검증 풀에서만</text>
+  </g>
+  <path d="M600.0 786L600.0 808" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <g class="node">
+  <rect x="260" y="810" width="680" height="110" rx="4" fill="#FFFFFF" stroke="#356A86" stroke-width="2.5"/>
+  <text x="600.0" y="857.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">판정</text>
+  <text x="600.0" y="888.0" fill="#304750" font-size="21" font-weight="400" text-anchor="middle">사전등록 기준과 비용 규칙으로 후보 여부 결정</text>
+  </g>
+  <path d="M940 463.0H1040V329.0H942" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="1056" y="402" fill="#61727A" font-size="21" font-weight="400" text-anchor="start">리뷰 실패</text>
+  <path d="M430 920V966H300V986" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M770 920V966H900V986" stroke="#356A86" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="440" y="950" fill="#61727A" font-size="21" font-weight="400" text-anchor="start">미충족</text>
+  <text x="700" y="950" fill="#61727A" font-size="21" font-weight="400" text-anchor="start">충족</text>
+  <g class="node">
+  <rect x="60" y="988" width="480" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="300.0" y="1030.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">후보 아님</text>
+  <text x="300.0" y="1061.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">결과를 그대로 기록</text>
+  </g>
+  <g class="node">
+  <rect x="660" y="988" width="480" height="100" rx="4" fill="#FFFFFF" stroke="#D7DCD9" stroke-width="2"/>
+  <text x="900.0" y="1030.0" fill="#304750" font-size="24" font-weight="700" text-anchor="middle">후보</text>
+  <text x="900.0" y="1061.0" fill="#61727A" font-size="21" font-weight="400" text-anchor="middle">후보여도 채택은 더 많은 새 기간 적용 뒤 판단</text>
+  </g>
+  <path d="M60 1038H30V195.0H258" stroke="#356A86" stroke-width="2" fill="none" stroke-dasharray="8 6" marker-end="url(#arrow)"/>
+  <text x="60" y="1122" fill="#61727A" font-size="21" font-weight="400" text-anchor="start">점선: 새 아이디어는 다시 탐색부터 시작하고, 판정에는 새 사전등록과 새 날짜가 필요합니다.</text>
+  <text x="60" y="1154" fill="#61727A" font-size="21" font-weight="400" text-anchor="start">검증 풀 단계까지 간 후보는 2026-11-01 기준 없습니다.</text>
+  <text x="60" y="1186" fill="#61727A" font-size="21" font-weight="400" text-anchor="start">2026-11-01 기준 채택된 후보는 없습니다.</text>
+</svg>
