@@ -1,7 +1,7 @@
 # 프로젝트 근거 인덱스
 
 자동 생성 파일입니다. 직접 수정하지 않습니다.
-기준일: 2026-11-01 · 계약: career-public/v1.1
+기준일: 2026-11-02 · 계약: career-public/v1.1
 
 ## Stock — 실시간 틱 수집 운영과 비용 반영 전략 검증 연구
 
@@ -11,9 +11,10 @@
 개인 프로젝트 · End-to-End Project Ownership · AI-Assisted Development
 확인 근거: `owner_statement` · 확인일: 2026-09-22
 
-- `stock-pipeline` — Python, Streamlit, 데이터 파이프라인 — [README.md](https://github.com/Peter-jackson12/Stock/blob/dbe99d479cb748fde470c1e3f7196b0f1f0cc5ba/README.md)
+- `stock-pipeline` — Python, Streamlit, 데이터 파이프라인 — [README.md](https://github.com/Peter-jackson12/Stock/blob/95c0c433f35162105a06749bdc099fe6a965e361/README.md)
 - `stock-sidecar-tests` — Python, SQLite, pytest — [tests/test_raw_v2_sidecar_lab_boundaries.py](https://github.com/Peter-jackson12/Stock/blob/dbe99d479cb748fde470c1e3f7196b0f1f0cc5ba/tests/test_raw_v2_sidecar_lab_boundaries.py)
 - `stock-backtest` — Python, 백테스트, 데이터 파이프라인 — [docs/FAST_BACKTEST_V1.md](https://github.com/Peter-jackson12/Stock/blob/dbe99d479cb748fde470c1e3f7196b0f1f0cc5ba/docs/FAST_BACKTEST_V1.md)
+- `stock-audit-20261102` — Python, pytest, 재현성, 데이터 품질 — [HANDOFF.md](https://github.com/Peter-jackson12/Stock/blob/95c0c433f35162105a06749bdc099fe6a965e361/HANDOFF.md)
 
 ## Airplane — 지연 예측과 날씨 정보 확장
 

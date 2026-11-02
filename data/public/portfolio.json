@@ -1,7 +1,7 @@
 {
   "schema_version": "career-public/v1.1",
   "visibility": "public",
-  "as_of": "2026-11-01",
+  "as_of": "2026-11-02",
   "target_roles": ["데이터 분석", "데이터 사이언스", "퀀트 리서치"],
   "projects": [
     {
@@ -9,7 +9,7 @@
       "name": "Stock — 실시간 틱 수집 운영과 비용 반영 전략 검증 연구",
       "repository": "Peter-jackson12/Stock",
       "status": "in_progress",
-      "summary": "KRX·NXT 전체 세션의 체결·호가 원문을 수집하고 종료 후 원본 검사로 판정하며, 비용 기준·사전등록·시점 정합 데이터로 전략 후보를 검증하는 연구. 2026-11-01 기준 채택된 후보는 없고 실거래는 하지 않는다.",
+      "summary": "KRX·NXT 전체 세션의 체결·호가 원문을 수집하고 종료 후 원본 검사로 판정하며, 비용 기준·사전등록·시점 정합 데이터로 전략 후보를 검증하는 연구. 2026-11-02 기준 채택된 후보는 없고 실거래는 하지 않는다.",
       "case_study": "projects/stock.md",
       "contribution_status": "owner_confirmed",
       "ownership": {
@@ -22,9 +22,9 @@
       "evidence": [
         {
           "evidence_id": "stock-pipeline",
-          "statement": "수집기·운영 화면·연구 워커를 분리하고 raw-v2 수집부터 입력 검증과 재생까지 단계별 계약을 관리한다.",
+          "statement": "수집기·운영 화면·연구 워커를 분리하고 raw-v2 수집부터 입력 검증·재생까지 단계별 계약을 관리하며, README에서 시스템 구조와 데이터 흐름·실패 처리를 시각화한다.",
           "skills": ["Python", "Streamlit", "데이터 파이프라인"],
-          "source": {"repository": "Peter-jackson12/Stock", "commit": "dbe99d479cb748fde470c1e3f7196b0f1f0cc5ba", "path": "README.md"},
+          "source": {"repository": "Peter-jackson12/Stock", "commit": "95c0c433f35162105a06749bdc099fe6a965e361", "path": "README.md"},
           "scope": "repository_review",
           "limitations": ["README와 구조를 검토한 근거이며 실데이터 연구 실행 완료나 수익성 입증이 아니다.", "원본 저장소가 2026-10-15 비공개로 전환돼 링크는 권한 있는 사람만 열람할 수 있다."]
         },
@@ -43,9 +43,17 @@
           "source": {"repository": "Peter-jackson12/Stock", "commit": "dbe99d479cb748fde470c1e3f7196b0f1f0cc5ba", "path": "docs/FAST_BACKTEST_V1.md"},
           "scope": "repository_review",
           "limitations": ["저장소의 실행 보고를 검토한 근거이며 원본 데이터로 재실행하지 않았다.", "빠른 백테스트는 screening 전용이고 한 실행에 한 종목·한 날짜만 다룬다."]
+        },
+        {
+          "evidence_id": "stock-audit-20261102",
+          "statement": "2026-11-02 감사 수정에서 장전 수집 공백 기록과 결과·매니페스트 정확성 문제를 보강하고, 합친 트리 전체 실행 5,678 passed · 0 failed · 35 skipped · 15 xfailed를 기록한다.",
+          "skills": ["Python", "pytest", "재현성", "데이터 품질"],
+          "source": {"repository": "Peter-jackson12/Stock", "commit": "95c0c433f35162105a06749bdc099fe6a965e361", "path": "HANDOFF.md"},
+          "scope": "repository_review",
+          "limitations": ["합성 자료 중심 검증이며 실제 런 값과 대시보드 화면은 다시 확인하지 않았다.", "감사 묶음 A의 마지막 소규모 수정은 별도 독립 리뷰를 거치지 않았다."]
         }
       ],
-      "limitations": ["2026-11-01 기준 채택된 후보가 없고 실거래·자동매매는 연결하지 않았으며 수익성을 주장하지 않는다.", "원본 검사는 SQLite 물리 integrity_check와 전체 파일 SHA를 포함하지 않으며 시장 coverage·연구 적격성·수익성을 인증하지 않는다.", "호가가 체결 행에 내장돼 체결 사이 호가 변화가 없으므로 재생 결과는 체결 품질의 근거가 아니다.", "데이터 공급자 무누락이나 시장 전체 coverage를 주장하지 않는다.", "원본 저장소는 2026-10-15부터 비공개이며, 2026-11-01 갱신 사실은 고정 commit 없는 작성자 로컬 운영 기록이라 evidence에 넣지 않았다.", "단독 구현 기여를 주장하지 않는다."]
+      "limitations": ["2026-11-02 기준 채택된 후보가 없고 실거래·자동매매는 연결하지 않았으며 수익성을 주장하지 않는다.", "원본 검사는 SQLite 물리 integrity_check와 전체 파일 SHA를 포함하지 않으며 시장 coverage·연구 적격성·수익성을 인증하지 않는다.", "호가가 체결 행에 내장돼 체결 사이 호가 변화가 없으므로 재생 결과는 체결 품질의 근거가 아니다.", "데이터 공급자 무누락이나 시장 전체 coverage를 주장하지 않는다.", "원본 저장소는 2026-10-15부터 비공개이며, 운영 수치·연구 결과 일부는 작성자 로컬 운영 기록이다. 2026-11-02 감사 수정·문서 상태는 고정 commit 근거를 별도로 둔다.", "단독 구현 기여를 주장하지 않는다."]
     },
     {
       "project_id": "airplane",
