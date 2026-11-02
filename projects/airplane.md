@@ -4,7 +4,7 @@
 
 <!-- project: airplane; status: in_progress; as_of: 2026-11-02 -->
 
-[포트폴리오](../README.md) / 대표 프로젝트 02
+[포트폴리오](../README.md) / 다른 프로젝트
 
 **후속 실험 후보 남음** · 기준일 2026-11-01  
 Source revision: `6a175683516d62b90069b4aa3496bdb7c5a00e9f` (2026-10-12)
