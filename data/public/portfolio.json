@@ -1,15 +1,19 @@
 {
   "schema_version": "career-public/v1.1",
   "visibility": "public",
-  "as_of": "2026-11-01",
-  "target_roles": ["데이터 분석", "데이터 사이언스", "퀀트 리서치"],
+  "as_of": "2026-11-02",
+  "target_roles": [
+    "데이터 분석",
+    "데이터 사이언스",
+    "퀀트 리서치"
+  ],
   "projects": [
     {
       "project_id": "stock",
       "name": "Stock — 실시간 틱 수집 운영과 비용 반영 전략 검증 연구",
       "repository": "Peter-jackson12/Stock",
       "status": "in_progress",
-      "summary": "KRX·NXT 전체 세션의 체결·호가 원문을 수집하고 종료 후 원본 검사로 판정하며, 비용 기준·사전등록·시점 정합 데이터로 전략 후보를 검증하는 연구. 2026-11-01 기준 채택된 후보는 없고 실거래는 하지 않는다.",
+      "summary": "KRX·NXT 전체 세션의 체결·호가 원문을 수집하고 종료 후 원본 검사로 판정하며, 비용 기준·사전등록·시점 정합 데이터로 전략 후보를 검증하는 연구. 2026-11-02 기준 채택된 후보는 없고 실거래는 하지 않는다.",
       "case_study": "projects/stock.md",
       "contribution_status": "owner_confirmed",
       "ownership": {
@@ -22,30 +26,89 @@
       "evidence": [
         {
           "evidence_id": "stock-pipeline",
-          "statement": "수집기·운영 화면·연구 워커를 분리하고 raw-v2 수집부터 입력 검증과 재생까지 단계별 계약을 관리한다.",
-          "skills": ["Python", "Streamlit", "데이터 파이프라인"],
-          "source": {"repository": "Peter-jackson12/Stock", "commit": "dbe99d479cb748fde470c1e3f7196b0f1f0cc5ba", "path": "README.md"},
+          "statement": "수집기·운영 화면·연구 워커를 분리하고 raw-v2 수집부터 입력 검증·재생까지 단계별 계약을 관리하며, README에서 시스템 구조와 데이터 흐름·실패 처리를 시각화한다.",
+          "skills": [
+            "Python",
+            "Streamlit",
+            "데이터 파이프라인"
+          ],
+          "source": {
+            "repository": "Peter-jackson12/Stock",
+            "commit": "95c0c433f35162105a06749bdc099fe6a965e361",
+            "path": "README.md"
+          },
           "scope": "repository_review",
-          "limitations": ["README와 구조를 검토한 근거이며 실데이터 연구 실행 완료나 수익성 입증이 아니다.", "원본 저장소가 2026-10-15 비공개로 전환돼 링크는 권한 있는 사람만 열람할 수 있다."]
+          "limitations": [
+            "README와 구조를 검토한 근거이며 실데이터 연구 실행 완료나 수익성 입증이 아니다.",
+            "원본 저장소가 2026-10-15 비공개로 전환돼 링크는 권한 있는 사람만 열람할 수 있다."
+          ]
         },
         {
           "evidence_id": "stock-sidecar-tests",
           "statement": "Windows SQLite sidecar의 부분 정리, 잠금 해제 후 writer 경합, 경로 교체를 합성 회귀로 다룬다.",
-          "skills": ["Python", "SQLite", "pytest"],
-          "source": {"repository": "Peter-jackson12/Stock", "commit": "dbe99d479cb748fde470c1e3f7196b0f1f0cc5ba", "path": "tests/test_raw_v2_sidecar_lab_boundaries.py"},
+          "skills": [
+            "Python",
+            "SQLite",
+            "pytest"
+          ],
+          "source": {
+            "repository": "Peter-jackson12/Stock",
+            "commit": "dbe99d479cb748fde470c1e3f7196b0f1f0cc5ba",
+            "path": "tests/test_raw_v2_sidecar_lab_boundaries.py"
+          },
           "scope": "repository_review",
-          "limitations": ["코드 검토 근거이며 이번 Portfolio 작업에서 Windows 운영 데이터 검증을 실행한 것은 아니다."]
+          "limitations": [
+            "코드 검토 근거이며 이번 Portfolio 작업에서 Windows 운영 데이터 검증을 실행한 것은 아니다."
+          ]
         },
         {
           "evidence_id": "stock-backtest",
           "statement": "제한 범위 실제 데이터의 이벤트 재생·가상체결·대표 사례 대조·재현성 확인과, 정밀 재생과의 일치를 검증한 screening 전용 빠른 백테스트 및 1,286개 셀 다조건 실행·재개 검증을 기록한다.",
-          "skills": ["Python", "백테스트", "데이터 파이프라인"],
-          "source": {"repository": "Peter-jackson12/Stock", "commit": "dbe99d479cb748fde470c1e3f7196b0f1f0cc5ba", "path": "docs/FAST_BACKTEST_V1.md"},
+          "skills": [
+            "Python",
+            "백테스트",
+            "데이터 파이프라인"
+          ],
+          "source": {
+            "repository": "Peter-jackson12/Stock",
+            "commit": "dbe99d479cb748fde470c1e3f7196b0f1f0cc5ba",
+            "path": "docs/FAST_BACKTEST_V1.md"
+          },
           "scope": "repository_review",
-          "limitations": ["저장소의 실행 보고를 검토한 근거이며 원본 데이터로 재실행하지 않았다.", "빠른 백테스트는 screening 전용이고 한 실행에 한 종목·한 날짜만 다룬다."]
+          "limitations": [
+            "저장소의 실행 보고를 검토한 근거이며 원본 데이터로 재실행하지 않았다.",
+            "빠른 백테스트는 screening 전용이고 한 실행에 한 종목·한 날짜만 다룬다."
+          ]
+        },
+        {
+          "evidence_id": "stock-audit-20261102",
+          "statement": "2026-11-02 감사 수정에서 장전 수집 공백 기록과 결과·매니페스트 정확성 문제를 보강하고, 합친 트리 전체 실행 5,678 passed · 0 failed · 35 skipped · 15 xfailed를 기록한다.",
+          "skills": [
+            "Python",
+            "pytest",
+            "재현성",
+            "데이터 품질"
+          ],
+          "source": {
+            "repository": "Peter-jackson12/Stock",
+            "commit": "95c0c433f35162105a06749bdc099fe6a965e361",
+            "path": "HANDOFF.md"
+          },
+          "scope": "repository_review",
+          "limitations": [
+            "합성 자료 중심 검증이며 실제 런 값과 대시보드 화면은 다시 확인하지 않았다.",
+            "감사 묶음 A의 마지막 소규모 수정은 별도 독립 리뷰를 거치지 않았다."
+          ]
         }
       ],
-      "limitations": ["2026-11-01 기준 채택된 후보가 없고 실거래·자동매매는 연결하지 않았으며 수익성을 주장하지 않는다.", "원본 검사는 SQLite 물리 integrity_check와 전체 파일 SHA를 포함하지 않으며 시장 coverage·연구 적격성·수익성을 인증하지 않는다.", "호가가 체결 행에 내장돼 체결 사이 호가 변화가 없으므로 재생 결과는 체결 품질의 근거가 아니다.", "데이터 공급자 무누락이나 시장 전체 coverage를 주장하지 않는다.", "원본 저장소는 2026-10-15부터 비공개이며, 2026-11-01 갱신 사실은 고정 commit 없는 작성자 로컬 운영 기록이라 evidence에 넣지 않았다.", "단독 구현 기여를 주장하지 않는다."]
+      "limitations": [
+        "2026-11-02 기준 채택된 후보가 없고 실거래·자동매매는 연결하지 않았으며 수익성을 주장하지 않는다.",
+        "원본 검사는 SQLite 물리 integrity_check와 전체 파일 SHA를 포함하지 않으며 시장 coverage·연구 적격성·수익성을 인증하지 않는다.",
+        "호가가 체결 행에 내장돼 체결 사이 호가 변화가 없으므로 재생 결과는 체결 품질의 근거가 아니다.",
+        "데이터 공급자 무누락이나 시장 전체 coverage를 주장하지 않는다.",
+        "원본 저장소는 2026-10-15부터 비공개이며, 운영 수치·연구 결과 일부는 작성자 로컬 운영 기록이다. 2026-11-02 감사 수정·문서 상태는 고정 commit 근거를 별도로 둔다.",
+        "단독 구현 기여를 주장하지 않는다."
+      ]
     },
     {
       "project_id": "airplane",
@@ -66,29 +129,63 @@
         {
           "evidence_id": "airplane-cv",
           "statement": "CVConfig로 평가 설정을 공유하고 inner holdout 모델 선택과 outer 평가 경계를 구분한다.",
-          "skills": ["Python", "scikit-learn", "교차검증"],
-          "source": {"repository": "Peter-jackson12/Airplane", "commit": "6a175683516d62b90069b4aa3496bdb7c5a00e9f", "path": "src/cv.py"},
+          "skills": [
+            "Python",
+            "scikit-learn",
+            "교차검증"
+          ],
+          "source": {
+            "repository": "Peter-jackson12/Airplane",
+            "commit": "6a175683516d62b90069b4aa3496bdb7c5a00e9f",
+            "path": "src/cv.py"
+          },
           "scope": "repository_review",
-          "limitations": ["호환용 과거 함수의 교차 fold 의존성 한계도 코드에 명시돼 있다.", "모든 과거 실행과 미래 운영 성능이 검증됐다는 뜻은 아니다."]
+          "limitations": [
+            "호환용 과거 함수의 교차 fold 의존성 한계도 코드에 명시돼 있다.",
+            "모든 과거 실행과 미래 운영 성능이 검증됐다는 뜻은 아니다."
+          ]
         },
         {
           "evidence_id": "airplane-findings",
           "statement": "모호한 결측 대치를 중단해 행 순서 의존 27,536행을 0행으로 만든 전처리 의미 개선과 Macro F1 향상 미확인을 구분하고, 날짜 귀속 180,332행 동일 조건 비교에서 날씨 추가 시 세 지표가 세 시드 모두 개선된 결과와 분류기 비교의 탐색 예산 한계를 기록한다.",
-          "skills": ["Python", "LightGBM", "데이터 품질"],
-          "source": {"repository": "Peter-jackson12/Airplane", "commit": "6a175683516d62b90069b4aa3496bdb7c5a00e9f", "path": "README.md"},
+          "skills": [
+            "Python",
+            "LightGBM",
+            "데이터 품질"
+          ],
+          "source": {
+            "repository": "Peter-jackson12/Airplane",
+            "commit": "6a175683516d62b90069b4aa3496bdb7c5a00e9f",
+            "path": "README.md"
+          },
           "scope": "repository_review",
-          "limitations": ["원본·대용량 cache는 Git에 없어 이번 검토에서 모델 실험을 재실행하지 않았다.", "정적 교차검증의 예측력 차이이며 날씨의 인과 효과나 미래 운항 성능을 주장하지 않는다."]
+          "limitations": [
+            "원본·대용량 cache는 Git에 없어 이번 검토에서 모델 실험을 재실행하지 않았다.",
+            "정적 교차검증의 예측력 차이이며 날씨의 인과 효과나 미래 운항 성능을 주장하지 않는다."
+          ]
         },
         {
           "evidence_id": "airplane-dashboards",
           "statement": "기존 실행 근거를 집계 CSV 15개로 정리해 지연 패턴·날씨와 지연·모델 오류의 Tableau Public 대시보드 3종을 게시한다.",
-          "skills": ["Tableau", "데이터 시각화"],
-          "source": {"repository": "Peter-jackson12/Airplane", "commit": "6a175683516d62b90069b4aa3496bdb7c5a00e9f", "path": "scripts/build_tableau_extracts.py"},
+          "skills": [
+            "Tableau",
+            "데이터 시각화"
+          ],
+          "source": {
+            "repository": "Peter-jackson12/Airplane",
+            "commit": "6a175683516d62b90069b4aa3496bdb7c5a00e9f",
+            "path": "scripts/build_tableau_extracts.py"
+          },
           "scope": "repository_review",
-          "limitations": ["대시보드는 새 모델 학습 없이 기존 결과를 탐색하며, 구간별 관측 비율은 연관이지 원인이 아니다."]
+          "limitations": [
+            "대시보드는 새 모델 학습 없이 기존 결과를 탐색하며, 구간별 관측 비율은 연관이지 원인이 아니다."
+          ]
         }
       ],
-      "limitations": ["정적 교차검증 결과를 인과 효과나 미래 서비스 효과로 일반화하지 않는다.", "분류기 비교는 사전 선언한 유한 탐색 예산 안의 결과다."]
+      "limitations": [
+        "정적 교차검증 결과를 인과 효과나 미래 서비스 효과로 일반화하지 않는다.",
+        "분류기 비교는 사전 선언한 유한 탐색 예산 안의 결과다."
+      ]
     }
   ]
 }
